@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.destroy_all
-Product.destroy_all
-Category.destroy_all
-ShoppingList.destroy_all
-
-u1 = User.create name:'user1', email 'test1@email.com', password: 'chicken'
-u2 = User.create name:'user2', email 'test2@email.com', password: 'chicken'
-u3 = User.create name:'user3', email 'test3@email.com', password: 'chicken'
-u4 = User.create name:'user4', email 'test4@email.com', password: 'chicken'
+# User.destroy_all
+# Product.destroy_all
+# Category.destroy_all
+# ShoppingList.destroy_all
+#
+# u1 = User.create name:'user1', email 'test1@email.com', password: 'chicken'
+# u2 = User.create name:'user2', email 'test2@email.com', password: 'chicken'
+# u3 = User.create name:'user3', email 'test3@email.com', password: 'chicken'
+# u4 = User.create name:'user4', email 'test4@email.com', password: 'chicken'
