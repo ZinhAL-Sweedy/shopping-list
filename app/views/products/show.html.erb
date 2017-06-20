@@ -1,0 +1,17 @@
+
+<h2>Product Details</h2>
+<p>Name: <%= @product.name %></p>
+<p>Number: <%= @product.number %></p>
+<br>
+<p>List of Categories:
+  <% @product.categories.each do |c| %>
+    <a href="/categories/<%= c.id %>"><%= c.name %></a>
+<% end %>
+</p>
+
+<br>
+<p>Price: <%= @product.price %></p>
+<br>
+Image URL:
+<%= cl_image_tag @product.image %>
+<a href="/products/<%= @product.id %>/edit">Edit Product Details</a>

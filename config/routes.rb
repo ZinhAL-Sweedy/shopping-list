@@ -1,68 +1,80 @@
 Rails.application.routes.draw do
-#
 
-root to: "users#new"
-get '/login' => 'session#new'
-post "/login" => 'session#create'
-delete 'login' => 'session#destroy'
+  resources :shoppinglistitems
+  # get 'shoppinglistitems/new'
+  #
+  # get 'shoppinglistitems/create'
+  #
+  # get 'shoppinglistitems/edit'
+  #
+  # get 'shoppinglistitems/update'
+  #
+  # get 'shoppinglistitems/index'
+  #
+  # get 'shoppinglistitems/show'
+  #
+  # get 'shoppinglistitems/destroy'
 
-resources :users
+  #user
 
-# get 'seesion/new'
-#
-#   get 'seesion/create'
-#
-#   get 'seesion/edit'
-#
-#   get 'seesion/update'
-#
-#   get 'seesion/shw'
-#
-#   get 'seesion/index'
-#
-#   get 'seesion/destroy'
-#
-#   get 'shopping_list/new'
-#
-#   get 'shopping_list/create'
-#
-#   get 'shopping_list/edit'
-#
-#   get 'shopping_list/update'
-#
-#   get 'shopping_list/show'
-#
-#   get 'shopping_list/index'
-#
-#   get 'shopping_list/destroy'
-#
-#   get 'categories/new'
-#
-#   get 'categories/create'
-#
-#   get 'categories/edit'
-#
-#   get 'categories/update'
-#
-#   get 'categories/show'
-#
-#   get 'categories/index'
-#
-#   get 'categories/destroy'
-#
-#   get 'users/new'
-#
-#   get 'users/create'
-#
-#   get 'users/edit'
-#
-#   get 'users/update'
-#
-#   get 'users/show'
-#
-#   get 'users/index'
-#
-#   get 'users/destroy'
-#
-#   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: "products#index"
+
+  resources :users
+
+  get    '/login' => 'session#new'
+  post   '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
+
+
+  #product
+  #create
+
+  resources :products
+  #
+  # get "/products/new"  => "products#new"
+  # get "/products"  => "products#create"
+  # # get "/products/edit"  =>
+  # #read
+  # get "/products"  => "products#index"
+  # get "/products/:id"  =>"products#show"
+  # # update
+  # get "/products/id/edit"  => "products#edit"
+  # # , as: 'product'
+  # patch "/products/id"  => "products#update"
+  # #delete
+  # delete "/products/:id"  => "products#destroy"
+
+
+  resources :categories
+  # #category
+  #   #create
+  #   get "/categories/new"  => "categories#new"
+  #   post "/categories" => "categories#create"
+  #   #read
+  #   get "/categories" => "categories#index"
+  #   get "/categories/:id"  => "categories#show"
+  #   #update
+  #   get "/categories/:id/edit" => "categories#edit"
+  #   # , as: 'categories'
+  #   #post
+  #   patch "/categories/:id" => "categories#update"
+
+    # get "/categories/update"
+
+#     #delete
+#     delete "/categories/:id" => "categories#destroy"
+#     ######################################
+#     #shoppinglist
+
+
+  resources :shoppinglists
+  #   shoppinglists GET    /shoppinglists(.:format)          shoppinglists#index
+  #                   POST   /shoppinglists(.:format)          shoppinglists#create
+  #  new_shoppinglist GET    /shoppinglists/new(.:format)      shoppinglists#new
+  # edit_shoppinglist GET    /shoppinglists/:id/edit(.:format) shoppinglists#edit
+  #      shoppinglist GET    /shoppinglists/:id(.:format)      shoppinglists#show
+  #                   PATCH  /shoppinglists/:id(.:format)      shoppinglists#update
+  #                   PUT    /shoppinglists/:id(.:format)      shoppinglists#update
+  #                   DELETE /shoppinglists/:id(.:format)      shoppinglists#destroy
+
 end

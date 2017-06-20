@@ -1,5 +1,6 @@
-class ShoppingListController < ApplicationController
+class ShoppinglistitemsController < ApplicationController
   def new
+    
   end
 
   def create
@@ -11,10 +12,10 @@ class ShoppingListController < ApplicationController
   def update
   end
 
-  def show
+  def index
   end
 
-  def index
+  def show
   end
 
   def destroy

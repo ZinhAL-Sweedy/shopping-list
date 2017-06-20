@@ -3,7 +3,7 @@
   <head>
     <title>Onlineshopping</title>
     <%= csrf_meta_tags %>
-
+    <%= cloudinary_js_config %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -11,13 +11,12 @@
   <body>
     <nav>
       <% unless @current_user.present? %>
-        <%= link_to 'Login', login_path %>
-      <% else %>
-        <%# User IS logged in %>
-        Welcome, <%= link_to @current_user.name, user_path( @current_user ) %> |
-        <%= link_to 'Logout', login_path, method: :delete %>
-      <% end %>
-    </nav>
+      <%= link_to 'Login', login_path %>
+    <% else %>
+    <%# User IS logged in %>
+      Welcome, <%= link_to @current_user.name, user_path( @current_user ) %> |
+      <%= link_to 'Logout', login_path, method: :delete %>
+  <% end %>
     <%= yield %>
   </body>
 </html>

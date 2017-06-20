@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: shoppinglists
+# Table name: shopping_list_items
 #
 #  id         :integer          not null, primary key
 #  product_id :integer
@@ -10,5 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class Shoppinglist < ApplicationRecord
+class ShoppingListItem < ApplicationRecord
+  belongs_to :product
+  belongs_to :user
 end

@@ -1,2 +1,18 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<h2>New Category</h2>
+
+<%= form_for @category do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+</p>
+<br>
+
+<p>
+  <%= f.label :product_id %>
+  <%= f.collection_select( :product_ids, @products, :id, :name, :multiple => true, :prompt => 'Select' ) %>
+</p>
+
+
+<%= f.submit %>
+
+<% end %>

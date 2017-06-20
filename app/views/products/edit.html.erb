@@ -1,0 +1,24 @@
+<h2>Edit Product</h2>
+<%= form_for @product do |p| %>
+<p>List of Categories
+  <%=p.label :category_id %>
+  <%= p.collection_select( :category_ids, @categories, :id, :name, include_blank: true) %>
+</p>
+<br>
+<p>
+  <%= p.label :name %>
+  <%= p.text_field :name, required: true %>
+</p>
+<br>
+<p>
+  <%= p.label :price %>
+  <%= p.text_field :price, required: true %>
+</p>
+<br>
+<!-- Image URL: -->
+<!-- <input type="text" name="image" value="<%= @product.image %>"> -->
+  <%= p.label :image %>
+  <%= p.cl_image_upload :image %>
+<br>
+<%= p.submit %>
+<% end %>

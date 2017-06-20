@@ -1,2 +1,15 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<h2>Edit Catogery</h2>
+<!-- <form action="/categories/<%= @category.id %>" method="post"> -->
+Name:
+<input type="text" name="name" value="<%= @category.name %>">
+<br>
+
+<%= form_for @category do |f| %>
+  <p>List of Products
+    <%= f.label :product_id %>
+    <%= f.collection_select( :product_ids, @products, :id, :name, :multiple => true, :prompt => 'Select' ) %>
+
+  </p>
+
+  <%= f.submit %>
+<% end %>
