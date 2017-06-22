@@ -4,7 +4,16 @@
   <% @products.each do |product| %>
   <li>
     <a href="/products/<%= product.id %>"><%= product.name %></a>|
-    
+
   </li>
   <% end %>
 </ul>
+
+<div class="input-group">
+  <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Products", class: 'form-control' %>
+    <span class="input-group-btn">
+      <%= submit_tag "Search", class: 'btn btn-default' %>
+    </span>
+  <% end %>
+</div>

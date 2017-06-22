@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+  before_action :check_if_admin
+  before_action :authorise_user, :except => [:index,:show]
+
+
   def new
     @category = Category.new
     @products = Product.all

@@ -12,12 +12,12 @@ User.destroy_all
 
 ShoppingListItem.destroy_all
 
-u1 = User.create name:'user1', email: 'test1@email.com', password: 'chicken'
-u2 = User.create name:'user2', email: 'test2@email.com', password: 'chicken'
-u3 = User.create name:'user3', email: 'test3@email.com', password: 'chicken'
-u4 = User.create name:'user4', email: 'test4@email.com', password: 'chicken'
-u5 = User.create name:'user5', email: 'test5@email.com', password: 'chicken'
-u6 = User.create name:'user6', email: 'test6@email.com', password: 'chicken'
+u1 = User.create name:'user1', email: 'test1@email.com', password: 'chicken', admin: 'true'
+u2 = User.create name:'user2', email: 'test2@email.com', password: 'chicken', admin: 'false'
+u3 = User.create name:'user3', email: 'test3@email.com', password: 'chicken', admin: 'false'
+u4 = User.create name:'user4', email: 'test4@email.com', password: 'chicken', admin: 'false'
+u5 = User.create name:'user5', email: 'test5@email.com', password: 'chicken', admin: 'false'
+u6 = User.create name:'user6', email: 'test6@email.com', password: 'chicken', admin: 'false'
 
 
 
