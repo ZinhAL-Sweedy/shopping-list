@@ -3,7 +3,7 @@
   <% @categories.each do |category| %>
   <li>
     <a href="/categories/<%= category.id %>"><%= category.name %></a>|
-    <a data-method="delete" href="/categories/<% category.id %>">Delete</a>
+    <a data-method="delete" href="/categories/<%= category.id %>">Delete</a>
   </li>
   <% end %>
 </ul>

@@ -1,2 +1,46 @@
-<h1>Shoppinglistitems#show</h1>
-<p>Find me in app/views/shoppinglistitems/show.html.erb</p>
+<h2>Shoppinglistitem Details</h2>
+<p>
+  User: <%= @user.name %>
+</p>
+<br>
+<p>List of Products
+  <% @products each do |p| %>
+    <a href="/products/<%= p.id %>"><%= p.name %></a>
+  <% end %>
+</p>
+<br>
+<p>
+  <!-- Lukey, can ou check how to link her shopping list and remove correctly. A little messed up with the premise of what a shopping list is.  It should just be a many to many from users - products right?  Then jsut a bit lost of the steps of making the association and then deleting the associaiton.  -->
+  <a data-method="delete" href="/products/<%= product.id %>">Delete</a>
+  <%= @shoppinglistitem.products.each do |s| %>
+    <%= link_to "remove product", product, :method => :delete, :confirm => "Are you sure?",:remote => true %>
+<% end %>
+<p>
+  Number of products inside store:
+<% @products each do |p| %>
+  <% if product.number =< 0 %>
+    errors.add(:product, :product.name, "is not available in store.")
+  <% end %>
+<% end %>
+</p>
+<p>
+  <% @products each do |p| %>
+    Quantity: <%= @products.length %>
+    Number of product inside store currently is : <%= p.number %>
+    Total price: <%= @products.length %> * p.price
+  <% end %>
+</p>
+
+
+<% if @current_user %>
+  <h2>Hello, <%= @current_user.name %></h2>
+<% else %>
+  <h2>Hello, guest</h2>
+  <h3>Search product: </h3>
+  <%= form_tag shoppinglistitems_path, method: :get do %>
+    <div>
+      <%= text_field_tag :search, params[:search],
+      placeholder: 'Search product', type: :search, style: 'width: 400px' %>
+    </div>
+    <div><%= submit_tag 'Search' %></div>
+  <% end %>

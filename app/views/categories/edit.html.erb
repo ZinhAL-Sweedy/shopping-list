@@ -5,11 +5,21 @@ Name:
 <br>
 
 <%= form_for @category do |f| %>
-  <p>List of Products
-    <%= f.label :product_id %>
-    <%= f.collection_select( :product_ids, @products, :id, :name, :multiple => true, :prompt => 'Select' ) %>
+<p>List of Products
 
-  </p>
 
-  <%= f.submit %>
+
+  <div>
+    <%= f.label "products" %>
+    <%= f.collection_check_boxes :product_ids, Product.all, :id, :name do |p| %>
+
+    <div>
+      <%= p.check_box %>
+      <%= p.label %>
+    </div>
+    <% end %>
+  </div>
+</p>
+
+<%= f.submit %>
 <% end %>

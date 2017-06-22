@@ -1,23 +1,11 @@
 Rails.application.routes.draw do
 
   resources :shoppinglistitems
-  # get 'shoppinglistitems/new'
-  #
-  # get 'shoppinglistitems/create'
-  #
-  # get 'shoppinglistitems/edit'
-  #
-  # get 'shoppinglistitems/update'
-  #
-  # get 'shoppinglistitems/index'
-  #
-  # get 'shoppinglistitems/show'
-  #
-  # get 'shoppinglistitems/destroy'
 
-  #user
+  post "/shopping_list_quantities" => 'shoppinglistitems#update_quantities'
 
   root to: "products#index"
+  # root to: ""
 
   resources :users
 
@@ -67,7 +55,7 @@ Rails.application.routes.draw do
 #     #shoppinglist
 
 
-  resources :shoppinglists
+  # resources :shoppinglists
   #   shoppinglists GET    /shoppinglists(.:format)          shoppinglists#index
   #                   POST   /shoppinglists(.:format)          shoppinglists#create
   #  new_shoppinglist GET    /shoppinglists/new(.:format)      shoppinglists#new

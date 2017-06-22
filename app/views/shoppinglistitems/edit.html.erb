@@ -1,2 +1,23 @@
-<h1>Shoppinglistitems#edit</h1>
-<p>Find me in app/views/shoppinglistitems/edit.html.erb</p>
+<h2>Edit Shoppinglistitems</h2>
+<%= form_for @shoppinglistitem do |s| %>
+  <p>
+    List of Users
+    <%= s.label :user_id %>
+    <%= s.collection_select( :user_ids,@users, :id, :name, include_blank: true) %>
+  </p>
+  <br>
+  <p>
+    List of Products
+    <%= s.label :product_id %>
+    <%= s.collection_select( :product_ids,@products, :id, :name, include_blank: true) %>
+    
+  </p>
+  <br>
+  <!--help with quantity  -->
+  <p>
+    Quantity
+  </p>
+
+  <br>
+  <%= s.submit %>
+  <% end %>

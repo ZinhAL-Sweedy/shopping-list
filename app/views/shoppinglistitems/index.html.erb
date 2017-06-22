@@ -1,2 +1,17 @@
-<h1>Shoppinglistitems#index</h1>
-<p>Find me in app/views/shoppinglistitems/index.html.erb</p>
+<h2>shoppinglistitems Index</h2>
+
+<%= form_tag shopping_list_quantities_path do %>
+
+<ul>
+  <% @shoppinglistitems.each do |s| %>
+  <li>
+    <%= link_to s.product.name, product_path(s.product) %>
+    <%= text_field_tag "item[#{s.product.id}]", s.quantity, size: 4 %>
+    <%= link_to 'Delete', shoppinglistitem_path(s), method: :delete %>
+
+  </li>
+  <% end %>
+</ul>
+
+<%= submit_tag 'Update' %>
+<% end %>

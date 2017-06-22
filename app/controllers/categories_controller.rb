@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     # create({
     #   name: params["name"]
     #   })
-      redirect_to "/categories/#{@category.id}"
+      redirect_to "/categories/#{ @category.id }"
   end
 
   def edit
@@ -21,12 +21,17 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    category = Category.find params["id"]
-      category.update category_params
+    @category = Category.find params["id"]
+    @category.update category_params
     # category.update({
     #   name: params["name"]
     #   })
-      redirect_to "/category/#{category.id}"
+    # @category.products << product_ids
+    redirect_to "/categories/#{ @category.id }"
+      # redirect_to category_path(category)
+      # /category/7" or similar
+      # redirect_to "/products/#{ product.id }" // or old way
+
   end
 
   def show
@@ -39,11 +44,14 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    Category.find( params["id"]).destroy
-    redirect_to "/catogries"
+
+    Category.find( params["id"] ).destroy
+    redirect_to "/categories"
+
+    # redirect_to category_path
   end
   private
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, product_ids:[])
   end
 end

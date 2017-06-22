@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def new
     @product = Product.new
-    @category = Category.all
+    @categories = Category.all
     # @categories = Category.all
   end
 
@@ -14,15 +14,21 @@ class ProductsController < ApplicationController
     # image: params["image"]
     # })
     # raise
+
+    # raise 'hell'
+
     @product = Product.new product_params
     if params[:file].present?
       #perform upload to cloudinaray
       req = Cloudinary::Uploader.upload params[:file]
       @product.image = req['public_id']
     end
-         # cloudinaryid public var and ny one use thie url can use it replace every image with this code
-        @product.save
-    redirect_to "/products/#{ @product.id }"
+
+    # cloudinaryid public var and ny one use thie url can use it replace every image with this code
+
+    @product.save
+    redirect_to product_path(@product)     # "/products/#{ @product.id }"
+
   end
 
   def edit
@@ -31,15 +37,21 @@ class ProductsController < ApplicationController
   end
 
   def update
-      product = Product.find params["id"]
+      @product = Product.find params["id"]
       # Product.update product_params
-      product.update product_params
+      @product.update product_params
       # ({
       #   name: params["name"],
       #   number: params["number"],
       #   price: params["price"]
       # })
-      redirect_to "/products/#{ product.id }"
+      if params[:file].present?
+        #perform upload to cloudinaray
+        req = Cloudinary::Uploader.upload params[:file]
+        @product.image = req['public_id']
+      end
+      @product.save
+      redirect_to "/products/#{ @product.id }"
   end
 
   def show
@@ -48,6 +60,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    # @products.variants
   end
 
   def destroy
@@ -57,6 +70,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :number, :price, :image)
+    params.require(:product).permit(:name, :number, :price, :image, category_ids:[])
   end
 end

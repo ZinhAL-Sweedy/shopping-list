@@ -4,7 +4,7 @@
   <% @products.each do |product| %>
   <li>
     <a href="/products/<%= product.id %>"><%= product.name %></a>|
-    <a data-method="delete" href="/products/<%= product.id %>">Delete</a>
+    
   </li>
   <% end %>
 </ul>

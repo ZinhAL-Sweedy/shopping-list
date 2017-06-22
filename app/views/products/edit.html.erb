@@ -1,13 +1,30 @@
 <h2>Edit Product</h2>
-<%= form_for @product do |p| %>
+<%= form_for @product, html: {multipart: true} do |p| %>
 <p>List of Categories
   <%=p.label :category_id %>
-  <%= p.collection_select( :category_ids, @categories, :id, :name, include_blank: true) %>
+
+
+  <div>
+    <%= p.label "categories" %><br>
+    <%= p.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
+
+      <div>
+        <%= c.check_box %>
+        <%= c.label %>
+      </div>
+    <% end %>
+  </div>
+
 </p>
 <br>
 <p>
   <%= p.label :name %>
   <%= p.text_field :name, required: true %>
+</p>
+<br>
+<p>
+  <%= p.label :number %>
+  <%= p.text_field :number, required: true %>
 </p>
 <br>
 <p>
@@ -17,8 +34,11 @@
 <br>
 <!-- Image URL: -->
 <!-- <input type="text" name="image" value="<%= @product.image %>"> -->
+<p>
   <%= p.label :image %>
   <%= p.cl_image_upload :image %>
+</p>
+
 <br>
 <%= p.submit %>
 <% end %>

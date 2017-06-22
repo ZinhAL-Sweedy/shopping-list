@@ -1,7 +1,13 @@
 
 <h2>Product Details</h2>
 <p>Name: <%= @product.name %></p>
-<p>Number: <%= @product.number %></p>
+<p>Number:
+<% if @product.number <= 0 %>
+  <p>Out of stock</p>
+  <% else %>
+   <%= @product.number %></p>
+<% end %>
+
 <br>
 <p>List of Categories:
   <% @product.categories.each do |c| %>
@@ -13,5 +19,13 @@
 <p>Price: <%= @product.price %></p>
 <br>
 Image URL:
-<%= cl_image_tag @product.image %>
-<a href="/products/<%= @product.id %>/edit">Edit Product Details</a>
+  <%= cl_image_tag(@product.image) %>
+  <a href="/products/<%= @product.id %>/edit">Edit Product Details</a>
+
+<hr>
+
+<%= form_tag shoppinglistitems_path do %>
+  Quantity: <%= text_field_tag :quantity %>
+  <%= submit_tag 'Add to Shopping List' %>
+  <%= hidden_field_tag :product_id, @product.id %>
+<% end %>

@@ -14,4 +14,6 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :shopping_list_items
+  validates :email, presence: true, uniqueness: true, length: {minimum: 5}
+  validates :name, presence: true
 end
