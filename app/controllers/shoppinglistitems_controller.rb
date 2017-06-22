@@ -13,7 +13,7 @@ class ShoppinglistitemsController < ApplicationController
 
       s = ShoppingListItem.where(user: @current_user, product_id: key)
       s.update quantity: val
-      
+
       # p s
       # puts s.product_id, s.quantity
     end
@@ -70,7 +70,6 @@ class ShoppinglistitemsController < ApplicationController
   end
   def index
     @shoppinglistitems = ShoppingListItem.where user: @current_user
-
     # puts "&"*50, @shoppinglistitems.pluck(:product_id)
 
   end

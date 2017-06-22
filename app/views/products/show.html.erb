@@ -19,7 +19,8 @@
 <p>Price: <%= @product.price %></p>
 <br>
 Image URL:
-  <%= cl_image_tag(@product.image) class="img-thumbnail" %>
+  <%= cl_image_tag(@product.image) %>
+  <!-- class="img-thumbnail" -->
   <a href="/products/<%= @product.id %>/edit">Edit Product Details</a>
 
 <hr>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://mlsdev.com/blog/44-ruby-on-rails-e-commerce-api-for-beginners-part-3 -->
+<html ng-app="mlsdev" ng-controller="GlobalController as global" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><!--<base href="/">--><base href="."><title ng-bind="global.page.meta.title" class="ng-binding">Ruby on Rails E-commerce API for Beginners. Part 3. | MLSDev</title><meta name="fragment" content="!"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"><!-- ngIf: global.page.meta.description --><meta ng-if="global.page.meta.description" name="description" content="A detailed tutorial for Ruby on Rails beginners who would like to learn how to create e-commerce API" class="ng-scope"><!-- end ngIf: global.page.meta.description --><!-- ngIf: global.page.meta.keywords --><meta ng-if="global.page.meta.keywords" name="keywords" content="Ruby on Rails, Ruby, API, e-commerce, tutorial, registration, authorization, user, password, authentication, token" class="ng-scope"><!-- end ngIf: global.page.meta.keywords --><meta name="google-site-verification" content="udpp98_YkWSOLKZQRAloDZ3HHVJ9ZVi5fug6whygsxw"><!-- ngIf: global.page.social.url --><meta ng-if="global.page.social.url" property="og:url" content="" class="ng-scope"><!-- end ngIf: global.page.social.url --><!-- ngIf: global.page.social.type --><meta ng-if="global.page.social.type" property="og:type" content="article" class="ng-scope"><!-- end ngIf: global.page.social.type --><!-- ngIf: global.page.social.title --><meta ng-if="global.page.social.title" property="og:title" content="Ruby on Rails E-commerce API for Beginners. Part 3." class="ng-scope"><!-- end ngIf: global.page.social.title --><!-- ngIf: global.page.social.description --><meta ng-if="global.page.social.description" property="og:description" content="A detailed tutorial for Ruby on Rails beginners who would like to learn how to create e-commerce API" class="ng-scope"><!-- end ngIf: global.page.social.description --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" property="og:image" content="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/af4d7bcf3690a7a3ce68cf299faf97744971b26e.jpg?1450269999" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" property="og:image:secure_url" content="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/af4d7bcf3690a7a3ce68cf299faf97744971b26e.jpg?1450269999" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" property="og:image:width" content="1080" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" property="og:image:height" content="1024" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.title --><meta ng-if="global.page.social.title" itemprop="name" content="Ruby on Rails E-commerce API for Beginners. Part 3." class="ng-scope"><!-- end ngIf: global.page.social.title --><!-- ngIf: global.page.social.url --><meta ng-if="global.page.social.url" itemprop="url" content="44-ruby-on-rails-e-commerce-api-for-beginners-part-3" class="ng-scope"><!-- end ngIf: global.page.social.url --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" itemprop="thumbnailUrl" content="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/af4d7bcf3690a7a3ce68cf299faf97744971b26e.jpg?1450269999" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" itemprop="image" content="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/af4d7bcf3690a7a3ce68cf299faf97744971b26e.jpg?1450269999" class="ng-scope"><!-- end ngIf: global.page.social.image --><link rel="apple-touch-icon" sizes="180x180" href="https://mlsdev.com/icons/apple-touch-icon.png"><link rel="icon" type="image/png" href="https://mlsdev.com/icons/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="https://mlsdev.com/icons/favicon-194x194.png" sizes="194x194"><link rel="icon" type="image/png" href="https://mlsdev.com/icons/android-chrome-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="https://mlsdev.com/icons/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="https://mlsdev.com/icons/manifest.json"><link rel="mask-icon" href="https://mlsdev.com/icons/safari-pinned-tab.svg" color="#5bbad5"><link rel="shortcut icon" href="https://mlsdev.com/icons/favicon.ico"><meta name="msapplication-config" content="/icons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><meta name="google-site-verification" content="cF3iHkQn_SLiB6R3ESg6nJXX0DVJhfJ_hY-_tnmQlXk"><meta name="robots" content="index, follow"><script type="text/javascript" src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/watch.js"></script><script async="" src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/analytics.js"></script><script type="application/ld+json">{ "@context" : "http://schema.org", "@type": "Organization", "name": "MLSDev Inc.", "image": "https://mlsdev.com/images/logo_dark.svg", "url": "https://mlsdev.com", "description": "MLSDev specializes in providing all-in-one solution in mobile and web development. We follow Lean principles and work according to agile methodologies to deliver the best results reducing the budget for development and its timeline.", "sameAs": [ "https://www.facebook.com/MLSDev", "https://twitter.com/MLSDevCom", "https://instagram.com/mlsdev", "https://www.linkedin.com/company/mlsdev", "https://plus.google.com/u/0/117561677351053481936", "https://dribbble.com/mlsdev", "https://www.behance.net/mlsdev", "https://www.youtube.com/channel/UC3iwfhbc4whBaw2svPcznPA", "https://github.com/MLSDev" ], "address": { "@type": "PostalAddress", "addressCountry": "USA", "addressLocality": "San Francisco", "addressRegion": "CA" }, "email": "mailto:sales@mlsdev.com", "telephone": "+38(050)1861409", "potentialAction": { "@type": "SearchAction", "target": "https://mlsdev.com/api/articles?words={search_term_string}", "query-input": "required name=search_term_string" } }</script><link href="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/css" rel="stylesheet"><link href="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/css(1)" rel="stylesheet"><script src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/polyfill.min.js"></script><script src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/CSSPlugin.min.js"></script><script src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/EasePack.min.js"></script><script src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/TweenLite.min.js"></script><link rel="stylesheet" href="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/main-b385b12300.css"></head><body ng-class="global.getBodyClasses()" class=""><div class="wrapper"><md-preloader class="ng-isolate-scope"><!-- ngIf: preloader.isVisible --></md-preloader><md-header-left ng-class="{&#39;white-opacity&#39;: global.isHeaderWhite(), &#39;white-full&#39;: global.isHeaderFullWhite()}" class="ng-isolate-scope white-opacity"><a href="https://mlsdev.com/" ng-click="header.setActive(0)" ng-class="{visible: header.isVisible.toplogo, dark: header.isVisible.dark}" class="logo visible"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 72 72"><path d="M13.1,38.5c1,4.8-1.8,4.7-6.3-0.3c-5.8-6.5-9.3-13,0.7-15.1c17.3-3.5,21.3-12.6,24-17.4 c6.9-12.2,14,2.7,16.4,6.8c3.5,5.8,2.6,7.7-1.8,4.3c-9-6.9-12.9,5.5-17.6,9.2C22.4,30.6,10.9,28.3,13.1,38.5z" class="logofill emm"></path><path d="M12.2,62.7c0.3-4.1,0.8-21.3,4.5-10.1c1.8,5.5,7.8,9.9,13.3,9.9c5.5,0,4.9,2.2-1.3,4.9 C27.1,68.2,11.3,77.1,12.2,62.7z" class="logofill ell"></path><path d="M60.5,63.3c4.7,17.5-27.3-0.2-16.5-0.2c11.4,0,8.2-18.4,7.7-30.4c-0.7-16.8,28.4-10.2,16.3,0.5 C58.8,41.3,55.6,45.4,60.5,63.3z" class="logofill ess"></path></svg><span class="logo-text">MLSDev</span></a></md-header-left><md-header-right ng-class="{&#39;white-opacity&#39;: global.isHeaderWhite(), &#39;white-full&#39;: global.isHeaderFullWhite(), &#39;show-items&#39;: global.isHeaderItemsShow()}" class="ng-isolate-scope white-opacity show-items"><div ng-class="{unvisible: header.isVisible.hireus}" class="top-navigation-wrap unvisible"><a ui-sref="home" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;home&#39;)}" class="nav-item" href="https://mlsdev.com/">Home</a><a ui-sref="company" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;company&#39;)}" class="nav-item" href="https://mlsdev.com/company">Our company</a><a ui-sref="portfolio" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;portfolio&#39;)}" class="nav-item" href="https://mlsdev.com/portfolio">Portfolio</a><a ui-sref="blog" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;blog&#39;) || header.checkActiveState(&#39;article&#39;)}" class="nav-item active" href="https://mlsdev.com/blog">Blog</a><a ui-sref="contact-us" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;contact-us&#39;)}" class="nav-item" href="https://mlsdev.com/contact-us">Contact us</a></div><div ng-class="{&#39;visible&#39;: header.hireUsVisibility}" class="button-container v-center-block visible"><a ui-sref="contact-us" ng-class="header.getAnimamBtnClass()" ng-click="header.trackHireUsGoal()" ng-bind="header.hireUsText" class="btn btn-green_ btn-talk-top btn-small ng-binding anim-btn-undefined" href="https://mlsdev.com/contact-us">LET'S TALK</a></div></md-header-right><md-go-top class="ng-isolate-scope"><div ng-click="goTop.goToTop()" ng-class="{&#39;show-btn&#39;: goTop.checkShowGoTopBtn()}" class="to-top-wrap"><i class="mdi mdi-arrow-up"></i></div></md-go-top><md-progress class="ng-isolate-scope"><div class="page-progress"></div></md-progress><!-- uiView: --><ui-view ng-hide="global.isShowPage404" autoscroll="" class="ng-scope"><div class="article ng-scope"><div class="article_head"><div class="article_head_text"><h1 class="article_title ng-binding">Ruby on Rails E-commerce API for Beginners. Part 3.</h1><div class="bottom-header-wrap"><div ng-bind="article.data.published | date: &#39;dd MMMM yyyy&#39;" class="article_date ng-binding">15 December 2015</div><div ng-bind="article.data.author" class="article_author ng-binding">Yuriy Blokhin. Junior Back End Developer</div></div></div><!-- ngIf: article.data.imageIsLoaded --><img ng-if="article.data.imageIsLoaded" ng-src="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/af4d7bcf3690a7a3ce68cf299faf97744971b26e.jpg?1450269999" class="article_image ng-scope" src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/af4d7bcf3690a7a3ce68cf299faf97744971b26e.jpg"><!-- end ngIf: article.data.imageIsLoaded --><!-- ngIf: !article.data.imageIsLoaded --></div><!-- ngIf: article.data --><div ng-if="article.data" class="ng-scope"><div class="article_main"><md-shares title="article.data.title" class="social-buttons ng-isolate-scope"><div ng-class="shares.getClasses()" md-slide-position="md-slide-position" min-pos="50" max-pos="450" vh="35" max-pos-large="650" is-large="1900" class="social-shares-buttons v-center-container ng-isolate-scope" style="transition: transform 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) 0s; top: 50px; transform: translateY(0px);"><div class="subscribe-block"><md-subscription-form class="ng-isolate-scope"><div class="title-subscribe">Subscribe to our newsletter</div><!-- ngIf: $ctrl.isSent --><!-- ngIf: !$ctrl.isSent --><div ng-if="!$ctrl.isSent" class="ng-scope"><form name="$ctrl.form" ng-submit="$ctrl.subscribe($event)" ng-class="{invalid: $ctrl.isInvalid}" novalidate="novalidate" class="subscribe-form ng-pristine ng-invalid ng-invalid-required ng-valid-email"><input type="email" placeholder="Enter your email" ng-change="$ctrl.onChange()" ng-model="$ctrl.email" required="required" class="subscribe-input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-email"> <button type="submit" ng-bind="$ctrl.buttonText" class="subscribe-btn ng-binding">Subscribe</button></form></div><!-- end ngIf: !$ctrl.isSent --></md-subscription-form></div><a ng-click="shares.share(&#39;facebook&#39;)" title="Share in facebook" class="icon-block v-line-block"><i class="mdi mdi-facebook"></i></a><a ng-click="shares.share(&#39;twitter&#39;)" title="Share in twitter" class="icon-block v-line-block"><i class="mdi mdi-twitter"></i></a><a ng-click="shares.share(&#39;google&#39;)" title="Share in Google+" class="icon-block v-line-block"><i class="mdi mdi-google-plus"></i></a><a ng-click="shares.share(&#39;linkedin&#39;)" title="Share in LinkedIn" class="icon-block v-line-block"><i class="mdi mdi-linkedin"></i></a></div></md-shares><div class="tags"><span ng-bind="article.data.category" class="ng-binding">Development</span>&nbsp;</div><div ng-bind-html="article.trust(article.data.content)" class="article_text ng-binding"><p>Hi, all! Our Ruby on Rails development kitchen is back. We hope you are eager to learn the next part of the recipe. As usual, you won’t need any dishes, spoons or knives. Just your computer and you, ready to code and create. &nbsp;<br>
+&nbsp;</p>
+<p>A small remark for those who missed the <a href="http://mlsdev.com/blog/42">first</a> and the <a href="http://mlsdev.com/blog/43">second</a> parts of our tutorial: don’t forget to read them first :)</p>
+
+<p>The third class is devoted to <a href="https://github.com/MLSDev/E-commerce-API" target="_blank" rel="nofollow">registration and authorization</a>. Every e-commerce platform needs them so we cannot skip this important requirement too. Safe online shopping is essential and has to be as private and convenient as possible.</p>
+
+<p>Let’s start with the registration. To begin with, create the model User with such fields as name:string, email:string, password_digest:string. To do this run the following command in the console:</p>
+
+<pre class="language-bash">  <code>
+$ rails generate model User name email password_digest
+  </code>
+</pre>
+
+<p>Then remember to run another command:&nbsp;</p>
+
+<pre class="language-bash">  <code>
+$ rake db:migrate
+  </code>
+</pre>
+
+<p>Go to the file app/models/user.rb and add the code line:</p>
+
+<pre class="language-ruby">  <code>
+class User &lt; ActiveRecord::Base
+  has_secure_password
+end
+  </code>
+</pre>
+
+<p>Let’s analyze the has_secure_password method in detail. It is used for saving a password, its validation and encryption (a cryptographic hash-function BCrypt is used for it). This method works with the field password_digest that is why we named it so. has_secure_password automatically connects 3 validations:</p>
+
+<ol>
+	<li>A password has to be entered while creating.&nbsp;</li>
+	<li>The password length has to be equal to or less than 72 symbols.</li>
+	<li>The password confirmation (the attribute password_confirmation is used for that).</li>
+</ol>
+
+<p>For the correct work of has_secure_password you need to connect the bcrypt gem. Go to Gemfile and add the following there:</p>
+
+<pre class="language-ruby">  <code>
+gem 'bcrypt'
+  </code>
+</pre>
+
+<p>Don’t forget about the command:&nbsp;</p>
+
+<pre class="language-bash">  <code>
+$ bundle install
+  </code>
+</pre>
+
+<p>Let’s also add validations to the fields name and email. We will use the email_validator gem for the email validation. Its description can be found here: <a href="https://github.com/balexand/email_validator" target="_blank" rel="nofollow">https://github.com/balexand/email_validator</a>. Connect it and write validations in the model User.</p>
+
+<pre class="language-ruby">  <code>
+class User &lt; ActiveRecord::Base
+  has_secure_password
+
+  validates :name, presence: true
+
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true
+end
+  </code>
+</pre>
+
+<p>Now, we should cover the fresh-created model with tests. The shoulda-matchers gem will be used for it. The description is here: <a href="https://github.com/thoughtbot/shoulda-matchers" target="_blank" rel="nofollow">https://github.com/thoughtbot/shoulda-matchers</a>. Go to the file spec/models/user_spec.rb:</p>
+
+<pre class="language-ruby">  <code>
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+  it { should have_secure_password }
+
+  it { should validate_presence_of :name }
+
+  it { should validate_presence_of :email }
+
+  it { should validate_uniqueness_of(:email).case_insensitive }
+
+  it { should_not allow_value('test').for(:email) }
+
+  it { should allow_value('test@test.com').for(:email) }
+end
+  </code>
+</pre>
+
+<p>Don’t forget to run the tests:</p>
+
+<pre class="language-bash">  <code>
+$ rake
+  </code>
+</pre>
+
+<p>Let’s create singleton resource api/user with action #create. Go to config/routes.rb and code:&nbsp;</p>
+
+<pre class="language-ruby">  <code>
+Rails.application.routes.draw do
+  namespace :api do
+    ...
+
+    resource :user, only: [:create]
+  end
+end
+  </code>
+</pre>
+
+<p>Then create the controller users_controller.rb in the directory app/controllers/api and write there:</p>
+
+<pre class="language-ruby">  <code>
+class Api::UsersController &lt; ApplicationController
+  private
+  def build_resource
+    @user = User.new resource_params
+  end
+
+  def resource
+    @user
+  end
+
+  def resource_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+end
+  </code>
+</pre>
+
+<p>We don’t need to define the action method #create as we have already created and defined it in ApplicationController in the <a href="http://mlsdev.com/blog/42">first part</a> of our tutorial.</p>
+
+<pre class="language-ruby">  <code>
+def create
+  build_resource
+
+  resource.save!
+end
+  </code>
+</pre>
+
+<p>That is why it will be enough to redefine private methods. After that cover the controller with tests. Create the file spec/controllers/api/users_controller_spec.rb and write the test:</p>
+
+<pre class="language-ruby">  <code>
+require 'rails_helper'
+
+RSpec.describe Api::UsersController, type: :controller do
+  it { should route(:post, 'api/user').to(action: :create) }
+
+  describe '#create.json' do
+    let(:params) do
+      {
+        name: 'Test name',
+        email: 'test@test.com',
+        password: '12345678',
+        password_confirmation: '12345678'
+      }
+    end
+
+    let(:user) { stub_model User }
+
+    before { expect(User).to receive(:new).with(params).and_return(user) }
+
+    before { expect(user).to receive(:save!) }
+
+    before { post :create, user: params, format: :json }
+
+    it { should render_template :create }
+  end
+end
+  </code>
+</pre>
+
+<p>As the next step you need to create UserDecorator and write the method #as_json there to make correct data return in the answer to this request.</p>
+
+<p>We already did the same in the <a href="http://mlsdev.com/blog/42">first part</a> of the tutorial when creating products.</p>
+
+<pre class="language-ruby">  <code>
+class UserDecorator &lt; Draper::Decorator
+  delegate_all
+
+  def as_json *args
+    {
+      name: name,
+      email: email
+    }
+  end
+end
+  </code>
+</pre>
+
+<p>Remember to cover the decorator with the tests:</p>
+
+<pre class="language-ruby">  <code>
+require 'rails_helper'
+
+RSpec.describe UserDecorator do
+  describe '#as_json' do
+    let(:user) { stub_model User, name: 'Test name', email: 'test@test.com' }
+
+    subject { user.decorate.as_json }
+
+    its([:name]) { should eq 'Test name' }
+
+    its([:email]) { should eq 'test@test.com' }
+  end
+end
+  </code>
+</pre>
+
+<p>Then create app/view/application/create.json.erb :</p>
+
+<pre class="language-ruby">  <code>
+&lt;%= sanitize resource.decorate.to_json %&gt;
+  </code>
+</pre>
+
+<p>After that you need to think how to show validation errors to a user. Go to ApplicationController and you will see that the method #save! is called in the #create method in the line:&nbsp;</p>
+
+<pre class="language-ruby">  <code>
+resource.save!
+  </code>
+</pre>
+
+<p>This method is quite peculiar: if there is a failure in saving a resource, it will call the ActiveRecord::RecordInvalid error. Due to this we can catch (rescue) this error in ApplicationController:</p>
+
+<pre class="language-ruby">  <code>
+class ApplicationController &lt; ActionController::Base
+...
+
+  rescue_from ActiveRecord::RecordInvalid do
+    render :errors, status: :unprocessable_entity
+  end
+
+...
+end
+  </code>
+</pre>
+
+<p>It means that if you don’t pass validation, the template “Errors” with&nbsp;status 422 (unprocessable entity) will be rendered.</p>
+
+<p>Let’s create the template app/view/application/errors.json.erb:</p>
+
+<pre class="language-ruby">  <code>
+&lt;%= sanitize({ errors: resource.errors }.to_json) %&gt;
+  </code>
+</pre>
+
+<p>The last thing we need to do is to go to ApplicationController and add:</p>
+
+<pre class="language-ruby">  <code>
+class ApplicationController &lt; ActionController::Base
+...
+
+  skip_before_action :verify_authenticity_token, if: :json_request?
+
+  private
+  def json_request?
+    request.format.json?
+  end
+...
+end
+  </code>
+</pre>
+
+<p>It will disconnect the protection from Cross-Site Request Forgery for requests in the json format.</p>
+
+<p>Excellent! The registration request is ready. Let’s check its performance with the tests:</p>
+
+<pre class="language-bash">  <code>
+$ rake
+  </code>
+</pre>
+
+<p>If no mistakes occur, we can test its performance with the curl command:</p>
+
+<pre class="language-bash">  <code>
+$ curl "http://localhost:3000/api/user" -H "Accept: application/json" -X POST -d "user[name]=test&amp;user[email]=test@test.com&amp;user[password]=test&amp;user[password_confirmation]=test"
+  </code>
+</pre>
+
+<p>You should see the following on the screen:</p>
+
+<pre class="language-javascript">  <code>
+{
+  "email": "test@test.com",
+  "name": "test"
+}
+  </code>
+</pre>
+
+<p>Try to repeat the same request and you will see the error:&nbsp;</p>
+
+<pre class="language-javascript">  <code>
+{
+  "errors": {
+    "email": [
+      "has already been taken"
+    ]
+  }
+}
+  </code>
+</pre>
+
+<p>Done. The registration is completed and we can move to the next point of our today’s task and create authorization for our users. We will use Token-Based Authentication to do that (there is a lot of information about it online).&nbsp;</p>
+
+<p>At first we need to create the AuthToken model with the field value:string and with the external key user_id. We will store user tokens here. Run the following command in the console:</p>
+
+<pre class="language-bash">  <code>
+$ rails generate model AuthToken
+  </code>
+</pre>
+
+<p>Then go to the migration file (timestamp)_create_auth_tokens.rb and write:</p>
+
+<pre class="language-ruby">  <code>
+class CreateAuthTokens &lt; ActiveRecord::Migration
+  def change
+    create_table :auth_tokens do |t|
+      t.string :value
+      t.references :user, index: true, foreign_key: true
+
+      t.timestamps null: false
+    end
+  end
+end
+  </code>
+</pre>
+
+<p>After that run the command:</p>
+
+<pre class="language-bash">  <code>
+$ rake db:migrate
+  </code>
+</pre>
+
+<p>Open the generated model AuthToken and add the code there:</p>
+
+<pre class="language-ruby">  <code>
+class AuthToken &lt; ActiveRecord::Base
+  belongs_to :user
+
+  validates :value, presence: true
+end
+  </code>
+</pre>
+
+<p>Add the following to the User model:</p>
+
+<pre class="language-ruby">  <code>
+class User &lt; ActiveRecord::Base
+...
+
+  has_one :auth_token, dependent: :destroy
+
+...
+end
+  </code>
+</pre>
+
+<p>It means that we have defined the one to one connection for the models User and AuthToken. The dependent option with the destroy value means that when deleting a user record from the database a connected record from the auth_tokens table will be deleted too.<br>
+&nbsp;<br>
+Add validation for auth_token as well and then write tests for the AuthToken model:</p>
+
+<pre class="language-ruby">  <code>
+require 'rails_helper'
+
+RSpec.describe AuthToken, type: :model do
+  it { should belong_to :user }
+
+  it { should validate_presence_of :value }
+end
+  </code>
+</pre>
+
+<p>Continue with adding the test to the User model:</p>
+
+<pre class="language-ruby">  <code>
+it { should have_one(:auth_token).dependent(:destroy) }
+  </code>
+</pre>
+
+<p>As the next step, create the singleton resource api/session with the action #create #destroy. Go to config/routes.rb:</p>
+
+<pre class="language-ruby">  <code>
+Rails.application.routes.draw do
+  namespace :api do
+    ...
+
+    resource :session, only: [:create, :destroy]
+  end
+end
+  </code>
+</pre>
+
+<p>Before creating SessionsController, we need to create the class Session, where a token for a new version will be generated and the session validation will be performed. Place this class in the /lib directory. To do this, we need to write the way for file uploading in config/application.rb.</p>
+
+<pre class="language-ruby">  <code>
+module Shop
+  class Application &lt; Rails::Application
+    ...
+
+    config.eager_load_paths &lt;&lt; config.root.join('lib').to_s
+  end
+end
+  </code>
+</pre>
+
+<p>Now we can start writing the class Session:</p>
+
+<pre class="language-ruby">  <code>
+class Session
+  include ActiveModel::Validations
+
+  attr_reader :email, :password, :user
+
+  def initialize params
+    params = params.try(:symbolize_keys) || {}
+
+    @user = params[:user]
+
+    @email = params[:email]
+
+    @password = params[:password]
+  end
+
+  validate do |model|
+    if user
+      model.errors.add :password, 'is invalid' unless user.authenticate password
+    else
+      model.errors.add :email, 'not found'
+    end
+  end
+
+  def save!
+    raise ActiveModel::StrictValidationFailed unless valid?
+
+    user.create_auth_token value: SecureRandom.uuid
+  end
+
+  def destroy!
+    user.auth_token.destroy!
+  end
+
+  def auth_token
+    user.try(:auth_token).try(:value)
+  end
+
+  def as_json *args
+    { auth_token: auth_token }
+  end
+
+  def decorate
+    self
+  end
+
+  private
+  def user
+    @user ||= User.find_by email: email
+  end
+end
+  </code>
+</pre>
+
+<p>Let’s analyze the code. The constructor (method initialize) accepts hash as a parameter and records to instance such variables as @email, @user and @password. Two getter methods (email and password) are also defined in the line:</p>
+
+<pre class="language-ruby">  <code>
+  attr_reader :email, :password
+  </code>
+</pre>
+
+<p>The ActiveModel::Validations allows us to use validations in this class. The following methods are connected: errors, invalid?, valid?, validate, validates_with.</p>
+
+<p>The user search by email is done in the #user method. If it is successful, @user is recorded in instance, if nothing is found, then it is nil.&nbsp;</p>
+
+<p>We need to check the validation to make sure if there is such a user with the email and if the entered password is correct.</p>
+
+<pre class="language-ruby">  <code>
+validate do |model|
+  if user
+    model.errors.add :password, 'is invalid' unless user.authenticate password
+  else
+    model.errors.add :email, 'not found'
+  end
+end
+  </code>
+</pre>
+
+<p>If a user is not valid, the #save! method returns the ActiveModel::StrictValidationFailed error. Otherwise a new token is created.</p>
+
+<p>The #destroy! method deletes the user token. The #auth_token method returns the token value.</p>
+
+<p>Let’s define the #as_json and #decorate methods instead of using the decorator.</p>
+
+<p>We need to cover this class with the spec/lib/session_spec.rb tests.</p>
+
+<pre class="language-ruby">  <code>
+require 'rails_helper'
+
+RSpec.describe Session, type: :lib do
+  it { should be_a ActiveModel::Validations }
+
+  let(:session) { Session.new email: 'test@test.com', password: '12345678' }
+
+  let(:user) { stub_model User }
+
+  subject { session }
+
+  its(:email) { should eq 'test@test.com' }
+
+  its(:password) { should eq '12345678' }
+
+  its(:decorate) { should eq subject }
+
+  describe '#user' do
+    before { expect(User).to receive(:find_by).with(email: 'test@test.com') }
+
+    it { expect { subject.send :user }.to_not raise_error }
+  end
+
+  context 'validations' do
+    subject { session.errors }
+
+    context do
+      before { expect(session).to receive(:user) }
+
+      before { session.valid? }
+
+      its([:email]) { should eq ['not found'] }
+    end
+
+    context do
+      before { expect(session).to receive(:user).twice.and_return(user) }
+
+      before { expect(user).to receive(:authenticate).with('12345678').and_return(false) }
+
+      before { session.valid? }
+
+      its([:password]) { should eq ['is invalid'] }
+    end
+  end
+
+  describe '#save!' do
+    context do
+      before { expect(subject).to receive(:valid?).and_return(false) }
+
+      it { expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) }
+    end
+
+    context do
+      before { expect(subject).to receive(:user).and_return(user) }
+
+      before { expect(subject).to receive(:valid?).and_return(true) }
+
+      before { expect(SecureRandom).to receive(:uuid).and_return('XXXX-YYYY-ZZZZ') }
+
+      before { expect(user).to receive(:create_auth_token).with(value: 'XXXX-YYYY-ZZZZ') }
+
+      it { expect { subject.save! }.to_not raise_error }
+    end
+  end
+
+  describe '#destroy!' do
+    before do
+      #
+      # subject.user.auth_token.destroy!
+      #
+      expect(subject).to receive(:user) do
+        double.tap do |a|
+          expect(a).to receive(:auth_token) do
+            double.tap do |b|
+              expect(b).to receive(:destroy!)
+            end
+          end
+        end
+      end
+    end
+
+    it { expect { subject.destroy! }.to_not raise_error }
+  end
+
+  describe '#auth_token' do
+    context do
+      before { expect(subject).to receive(:user) }
+
+      its(:auth_token) { should eq nil }
+    end
+
+    context do
+      let(:auth_token) { stub_model AuthToken, value: 'XXXX-YYYY-ZZZZ' }
+
+      let(:user) { stub_model User, auth_token: auth_token }
+
+      before { expect(subject).to receive(:user).and_return(user) }
+
+      its(:auth_token) { should eq 'XXXX-YYYY-ZZZZ' }
+    end
+  end
+
+  describe '#as_json' do
+    before { expect(subject).to receive(:auth_token).and_return('XXXX-YYYY-ZZZZ') }
+
+    its(:as_json) { should eq auth_token: 'XXXX-YYYY-ZZZZ' }
+  end
+end  
+  </code>
+</pre>
+
+<p>Go to ApplicationController and add the mistake ActiveModel::StrictValidationFailed in rescue_from:</p>
+
+<pre class="language-ruby">  <code>
+  rescue_from ActiveRecord::RecordInvalid, ActiveModel::StrictValidationFailed do
+    render :errors, status: :unprocessable_entity
+  end
+  </code>
+</pre>
+
+<p>Then you can start writing app/controllers/sessions_controller.rb:</p>
+
+<pre class="language-ruby">  <code>
+class Api::SessionsController &lt; ApplicationController
+  private
+  def build_resource
+    @session = Session.new resource_params
+  end
+
+  def resource
+    @session ||= Session.new user: current_user
+  end
+
+  def resource_params
+    params.require(:session).permit(:email, :password)
+  end
+end
+  </code>
+</pre>
+
+<p>Don’t forget that the actions #create and #destroy are defined in ApplicationController.</p>
+
+<p>In the #resource method, current_user is the object of the User class of a current user. We will tell you about its creation later.</p>
+
+<p>So, a user of our online-shop can create a new session now. But how can we check it in the requests that ask for authorization? API RoR can help (the authenticate_or_request_with_http_token method if to be more precise). This method calls two other methods inside of itself: authenticate_with_http_token and request_http_token_authentication.</p>
+
+<p>authenticate_with_http_token parses http header with the name Authorization and returns the token value. After that we need to do the token search in the database inside of the block of this method. The header should look the following way:</p>
+
+<p>"Authorization: Token token="value"" Authorization - header name.&nbsp;</p>
+
+<p>Token means that the authorization is Token-Based.<br>
+token="" is an attribute with the token value.<br>
+The request_http_token_authentication method will render Error 401 with the text “HTTP Token: Access denied.” if the authenticate_with_http_token method returns nil.</p>
+
+<p>Go to ApplicationController and add:</p>
+
+<pre class="language-ruby">  <code>
+class ApplicationController &lt; ActionController::Base
+....
+
+  before_action :authenticate
+
+  attr_reader :current_user
+
+  private
+  def authenticate
+    authenticate_or_request_with_http_token do |token, options|
+      @current_user = User.joins(:auth_token).find_by(auth_tokens: { value: token })
+    end
+  end
+
+....
+end
+  </code>
+</pre>
+
+<p>Now all API requests ask for authorization i.e. token transferring. &nbsp;But, for example, a request for a session creation shouldn’t require authorization. We need to correct it. Go to SessionsController and add:</p>
+
+<pre class="language-ruby">  <code>
+class Api::SessionsController &lt; ApplicationController
+  skip_before_action :authenticate, only: [:create]
+
+  ....
+end
+  </code>
+</pre>
+
+<p>Then you also need to change ProductsController and UsersController:</p>
+
+<pre class="language-ruby">  <code>
+class Api::ProductsController &lt; ApplicationController
+  skip_before_action :authenticate
+
+  ....
+end
+  </code>
+</pre>
+
+<pre class="language-ruby">  <code>
+class Api::UsersController &lt; ApplicationController
+  skip_before_action :authenticate
+
+  ....
+end
+  </code>
+</pre>
+
+<p>Great! Let’s try to do a couple of requests via curl in the command line. For example:</p>
+
+<pre class="language-bash">  <code>
+$ curl "http://localhost:3000/api/session" -H "Accept: application/json" -X POST -d "session[email]=test@test.com&amp;session[password]=test"
+  </code>
+</pre>
+
+<p>If you have done everything right you will see a generated token on the screen. Copy it as we will need it for further requests.</p>
+
+<p>Let’s try to make a request that requires authorization without transferring a token.</p>
+
+<pre class="language-bash">  <code>
+$ curl "http://localhost:3000/api/session" -H "Accept: application/json" -X DELETE
+  </code>
+</pre>
+
+<p>This is what you will see on the screen:</p>
+
+<p>HTTP Token: Access denied.</p>
+
+<p>Let’s make the same request to delete the session, but with a token this time.</p>
+
+<pre class="language-bash">  <code>
+$ curl "http://localhost:3000/api/session" -H "Accept: application/json" -H "Authorization: Token token="your token"" -X DELETE
+  </code>
+</pre>
+
+<p>If processed successfully, this request will return an empty body with the status 200. If you try to repeat it you will see the text "HTTP Token: Access denied." because the token has been deleted from the database.</p>
+
+<p>Seems like this is it for now. The tasks have been accomplished. We have done the registration and authorization for the online-shop.&nbsp;</p>
+
+<p>You are moving in the right direction and your <a href="https://github.com/MLSDev/E-commerce-API" target="_blank" rel="nofollow">e-commerce project</a> is getting bigger. Don’t miss the next issues of the tutorial.&nbsp;</p>
+
+<p>We will continue learning in 2016 already so our development team wishes you a Merry Christmas and a Happy New Year! Enjoy your life, keep calm and code in Ruby :)</p>
+
+<p>&nbsp;</p>
+
+<p>P.S. Your home assignment is to do tests for the code that is not covered with them in this part :)</p>
+</div><div class="tags"><span ng-bind="article.data.category" class="ng-binding">Development</span></div></div><div class="related-posts-wrap"><h3 class="related-header">Related Articles</h3><div class="related-items-wrap"><!-- ngRepeat: itemRel in article.data.related | limitTo: 3 --><a ng-repeat="itemRel in article.data.related | limitTo: 3" ui-sref="article({articleId: itemRel.slug})" class="related-item ng-scope" href="https://mlsdev.com/blog/61-why-startups-use-ruby-on-rails"><img ng-src="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/3ec78725fbe64926ff445d5b1def36515afcd670.png?1461061124" alt="61-why-startups-use-ruby-on-rails" class="rel-item-image" src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/3ec78725fbe64926ff445d5b1def36515afcd670.png"><h4 class="rel-item-text"><span ng-bind="itemRel.title" class="ng-binding">Why Startups Use Ruby on Rails?</span></h4></a><!-- end ngRepeat: itemRel in article.data.related | limitTo: 3 --><a ng-repeat="itemRel in article.data.related | limitTo: 3" ui-sref="article({articleId: itemRel.slug})" class="related-item ng-scope" href="https://mlsdev.com/blog/43-ruby-on-rails-e-commerce-api-for-beginners-part-2"><img ng-src="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/225c5e44cc53127bde9d0a0cdc9088f87780e59c.jpg?1449060928" alt="43-ruby-on-rails-e-commerce-api-for-beginners-part-2" class="rel-item-image" src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/225c5e44cc53127bde9d0a0cdc9088f87780e59c.jpg"><h4 class="rel-item-text"><span ng-bind="itemRel.title" class="ng-binding">Ruby on Rails E-commerce API for Beginners. Part 2.</span></h4></a><!-- end ngRepeat: itemRel in article.data.related | limitTo: 3 --><a ng-repeat="itemRel in article.data.related | limitTo: 3" ui-sref="article({articleId: itemRel.slug})" class="related-item ng-scope" href="https://mlsdev.com/blog/42-ruby-on-rails-e-commerce-api-for-beginners-part-1"><img ng-src="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/1597b73d16c8fbbf804f9ac0824d9271d262f65d.jpg?1447850372" alt="42-ruby-on-rails-e-commerce-api-for-beginners-part-1" class="rel-item-image" src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/1597b73d16c8fbbf804f9ac0824d9271d262f65d.jpg"><h4 class="rel-item-text"><span ng-bind="itemRel.title" class="ng-binding">Ruby on Rails E-commerce API for Beginners. Part 1.</span></h4></a><!-- end ngRepeat: itemRel in article.data.related | limitTo: 3 --></div></div><div class="social-buttons"><md-company-links element-class="v-center-block" class="v-center-container ng-isolate-scope"><!-- ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.facebook.com/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.facebook.com/MLSDev"><i ng-class="item.classes" class="mdi mdi-facebook"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://twitter.com/MLSDevCom" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://twitter.com/MLSDevCom"><i ng-class="item.classes" class="mdi mdi-twitter"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://plus.google.com/+MlsdevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://plus.google.com/+MlsdevInc"><i ng-class="item.classes" class="mdi mdi-google-plus"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.linkedin.com/company/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.linkedin.com/company/MLSDev"><i ng-class="item.classes" class="mdi mdi-linkedin"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.instagram.com/mlsdev/" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.instagram.com/mlsdev/"><i ng-class="item.classes" class="mdi mdi-instagram"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://dribbble.com/mlsdev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://dribbble.com/mlsdev"><i ng-class="item.classes" class="mdi mdi-dribbble"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.behance.net/MLSDevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.behance.net/MLSDevInc"><i ng-class="item.classes" class="mdi mdi-behance"></i></a><!-- end ngRepeat: item in links.items --></md-company-links></div></div><!-- end ngIf: article.data --></div></ui-view><!-- ngIf: global.isShowPage404 --><md-side-menu class="ng-isolate-scope"><div ng-class="{visible: menu.isVisibleControls.sandwich||menu.isVisible}" class="menu-container v-center-block visible"><a ng-click="menu.menuClick()" class="btn btn-menu"><span ng-class="{&quot;is-clicked&quot;: menu.isVisible}" class="btn-menu-icon"></span></a></div><div ng-class="{visible: menu.isVisible}" class="side-menu"><div class="svg-logo"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 72 72" style="enable-background:new 0 0 72 72;" xml:space="preserve"><g><g><path d="M13.1,38.5c1,4.8-1.8,4.7-6.3-0.3c-5.8-6.5-9.3-13,0.7-15.1c17.3-3.5,21.3-12.6,24-17.4 c6.9-12.2,14,2.7,16.4,6.8c3.5,5.8,2.6,7.7-1.8,4.3c-9-6.9-12.9,5.5-17.6,9.2C22.4,30.6,10.9,28.3,13.1,38.5z" class="logo st0"></path></g><g><path d="M12.2,62.7c0.3-4.1,0.8-21.3,4.5-10.1c1.8,5.5,7.8,9.9,13.3,9.9c5.5,0,4.9,2.2-1.3,4.9 C27.1,68.2,11.3,77.1,12.2,62.7z" class="logo st0"></path></g><g><path d="M60.5,63.3c4.7,17.5-27.3-0.2-16.5-0.2c11.4,0,8.2-18.4,7.7-30.4c-0.7-16.8,28.4-10.2,16.3,0.5 C58.8,41.3,55.6,45.4,60.5,63.3z" class="logo st0"></path></g></g></svg></div><div class="menu-block"><ul><li><a ng-click="menu.menuClick()" ui-sref="home" ng-class="{active: menu.stateActive(&#39;home&#39;)}" href="https://mlsdev.com/">Home</a></li><li><a ng-click="menu.menuClick()" ui-sref="company" ng-class="{active: menu.stateActive(&#39;company&#39;)}" href="https://mlsdev.com/company">Our company</a></li><li><a ng-click="menu.menuClick()" ui-sref="portfolio" ng-class="{active: menu.stateActive(&#39;portfolio&#39;)}" href="https://mlsdev.com/portfolio">Portfolio</a></li><li><a ng-click="menu.menuClick()" ui-sref="blog" ng-class="{active: menu.stateActive(&#39;blog&#39;)}" href="https://mlsdev.com/blog">Blog</a></li><li><a ng-click="menu.menuClick()" ui-sref="contact-us" ng-class="{active: menu.stateActive(&#39;contact-us&#39;)}" href="https://mlsdev.com/contact-us">Contact us</a></li></ul></div><div class="footer-block"><div md-slider="headerNews" auto-switching="true" delay="4000" event="click" initialize-state="true" switching-enabled="menu.isVisible" class="news-block ng-isolate-scope"><div class="footer-cell-header">What’s new</div><div class="news-container footer-content text-color-grey"><div slider-content-type="slide" md-slider-element="headerNews" class="news ng-isolate-scope slider-element active">How to Choose the Right Development Platform for a Mobile App?&nbsp;<span class="text-uppercase text-color-green">Read more</span></div><div slider-content-type="slide" md-slider-element="headerNews" class="news ng-isolate-scope slider-element next">News 2&nbsp;<span class="text-uppercase text-color-green">Read more</span></div><div slider-content-type="slide" md-slider-element="headerNews" class="news ng-isolate-scope slider-element">News 3&nbsp;<span class="text-uppercase text-color-green">Read more</span></div><div slider-content-type="slide" md-slider-element="headerNews" class="news ng-isolate-scope slider-element prev">News 4&nbsp;<span class="text-uppercase text-color-green">Read more</span></div></div><div class="navigation-container inline-container"><div slider-content-type="switch" md-slider-element="headerNews" class="navigation-point ng-isolate-scope active"></div><div slider-content-type="switch" md-slider-element="headerNews" class="navigation-point ng-isolate-scope"></div><div slider-content-type="switch" md-slider-element="headerNews" class="navigation-point ng-isolate-scope"></div><div slider-content-type="switch" md-slider-element="headerNews" class="navigation-point ng-isolate-scope"></div></div></div><div class="social-buttons"><md-company-links element-class="v-center-block" class="v-center-container ng-isolate-scope"><!-- ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.facebook.com/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.facebook.com/MLSDev"><i ng-class="item.classes" class="mdi mdi-facebook"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://twitter.com/MLSDevCom" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://twitter.com/MLSDevCom"><i ng-class="item.classes" class="mdi mdi-twitter"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://plus.google.com/+MlsdevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://plus.google.com/+MlsdevInc"><i ng-class="item.classes" class="mdi mdi-google-plus"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.linkedin.com/company/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.linkedin.com/company/MLSDev"><i ng-class="item.classes" class="mdi mdi-linkedin"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.instagram.com/mlsdev/" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.instagram.com/mlsdev/"><i ng-class="item.classes" class="mdi mdi-instagram"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://dribbble.com/mlsdev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://dribbble.com/mlsdev"><i ng-class="item.classes" class="mdi mdi-dribbble"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.behance.net/MLSDevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.behance.net/MLSDevInc"><i ng-class="item.classes" class="mdi mdi-behance"></i></a><!-- end ngRepeat: item in links.items --></md-company-links></div></div></div></md-side-menu><md-footer class="ng-isolate-scope"><footer id="footer"><div class="footer-container"><div class="footer-cell contacts-block"><div class="footer-cell-header">Contact us</div><div class="footer-content inline-container"><div class="contacts v-center-container"><div class="icon-block v-center-block nohover"><i class="mdi mdi-cellphone-iphone"></i></div><div class="v-center-block"><div class="text-color-grey">Phones</div><a href="tel:+380975058161" class="text-color-green">+38 (097) 505 81 61</a></div></div><div class="contacts v-center-container"><div class="icon-block v-center-block nohover"><i class="mdi mdi-email-outline"></i></div><div class="v-center-block"><div class="text-color-grey">Email</div><a href="mailto:sales@mlsdev.com" class="text-color-green">sales@mlsdev.com</a><a href="mailto:job@mlsdev.com" class="text-color-green">job@mlsdev.com</a></div></div></div></div><div class="footer-cell social-block"><div class="footer-cell-header">Follow us on</div><md-company-links element-class="v-center-block" class="footer-content v-center-container-simple ng-isolate-scope"><!-- ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.facebook.com/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.facebook.com/MLSDev"><i ng-class="item.classes" class="mdi mdi-facebook"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://twitter.com/MLSDevCom" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://twitter.com/MLSDevCom"><i ng-class="item.classes" class="mdi mdi-twitter"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://plus.google.com/+MlsdevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://plus.google.com/+MlsdevInc"><i ng-class="item.classes" class="mdi mdi-google-plus"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.linkedin.com/company/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.linkedin.com/company/MLSDev"><i ng-class="item.classes" class="mdi mdi-linkedin"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.instagram.com/mlsdev/" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.instagram.com/mlsdev/"><i ng-class="item.classes" class="mdi mdi-instagram"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://dribbble.com/mlsdev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://dribbble.com/mlsdev"><i ng-class="item.classes" class="mdi mdi-dribbble"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.behance.net/MLSDevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.behance.net/MLSDevInc"><i ng-class="item.classes" class="mdi mdi-behance"></i></a><!-- end ngRepeat: item in links.items --></md-company-links></div><div md-slider="footer" auto-switching="true" delay="4000" event="click" initialize-state="true" switching-enabled="footer.isVisible" class="footer-cell news-block ng-isolate-scope"><div class="footer-cell-header">What’s new</div><div class="news-container footer-content text-color-grey"><!-- ngRepeat: news in footer.news.list --><a ng-repeat="news in footer.news.list" slider-content-type="slide" md-slider-element="footer" ui-sref="article({articleId: &#39;129-how-to-engage-and-retain-app-users-part-1-engagement&#39;})" class="news ng-scope ng-isolate-scope slider-element active" href="https://mlsdev.com/blog/129-how-to-engage-and-retain-app-users-part-1-engagement"><span ng-bind="news.title" class="ng-binding">How to Engage and Retain App Users? Part 1: Engagement</span><span>&nbsp;</span><span class="text-uppercase text-color-green">read more</span></a><!-- end ngRepeat: news in footer.news.list --><a ng-repeat="news in footer.news.list" slider-content-type="slide" md-slider-element="footer" ui-sref="article({articleId: &#39;128-microservices-vs-monoliths-how-to-understand-when-it-s-time-to-use-the-former-option&#39;})" class="news ng-scope ng-isolate-scope slider-element next" href="https://mlsdev.com/blog/128-microservices-vs-monoliths-how-to-understand-when-it-s-time-to-use-the-former-option"><span ng-bind="news.title" class="ng-binding">Microservices vs Monoliths: How to Understand When It's Time to Use the Former Option?</span><span>&nbsp;</span><span class="text-uppercase text-color-green">read more</span></a><!-- end ngRepeat: news in footer.news.list --><a ng-repeat="news in footer.news.list" slider-content-type="slide" md-slider-element="footer" ui-sref="article({articleId: &#39;127-top-strategies-to-increase-app-downloads&#39;})" class="news ng-scope ng-isolate-scope slider-element" href="https://mlsdev.com/blog/127-top-strategies-to-increase-app-downloads"><span ng-bind="news.title" class="ng-binding">Top Strategies to Increase App Downloads </span><span>&nbsp;</span><span class="text-uppercase text-color-green">read more</span></a><!-- end ngRepeat: news in footer.news.list --><a ng-repeat="news in footer.news.list" slider-content-type="slide" md-slider-element="footer" ui-sref="article({articleId: &#39;126-50-shades-of-wordpress-is-it-worth-a-try&#39;})" class="news ng-scope ng-isolate-scope slider-element prev" href="https://mlsdev.com/blog/126-50-shades-of-wordpress-is-it-worth-a-try"><span ng-bind="news.title" class="ng-binding">50 Shades of Wordpress: Is It Worth a Try?</span><span>&nbsp;</span><span class="text-uppercase text-color-green">read more</span></a><!-- end ngRepeat: news in footer.news.list --></div><div class="navigation-container inline-container"><!-- ngRepeat: news in footer.news.list --><div ng-repeat="news in footer.news.list" slider-content-type="switch" md-slider-element="footer" class="navigation-point ng-scope ng-isolate-scope active"></div><!-- end ngRepeat: news in footer.news.list --><div ng-repeat="news in footer.news.list" slider-content-type="switch" md-slider-element="footer" class="navigation-point ng-scope ng-isolate-scope"></div><!-- end ngRepeat: news in footer.news.list --><div ng-repeat="news in footer.news.list" slider-content-type="switch" md-slider-element="footer" class="navigation-point ng-scope ng-isolate-scope"></div><!-- end ngRepeat: news in footer.news.list --><div ng-repeat="news in footer.news.list" slider-content-type="switch" md-slider-element="footer" class="navigation-point ng-scope ng-isolate-scope"></div><!-- end ngRepeat: news in footer.news.list --></div></div><div class="footer-cell subscribe-block"><md-subscription-form class="ng-isolate-scope"><div class="title-subscribe">Subscribe to our newsletter</div><!-- ngIf: $ctrl.isSent --><!-- ngIf: !$ctrl.isSent --><div ng-if="!$ctrl.isSent" class="ng-scope"><form name="$ctrl.form" ng-submit="$ctrl.subscribe($event)" ng-class="{invalid: $ctrl.isInvalid}" novalidate="novalidate" class="subscribe-form ng-pristine ng-invalid ng-invalid-required ng-valid-email"><input type="email" placeholder="Enter your email" ng-change="$ctrl.onChange()" ng-model="$ctrl.email" required="required" class="subscribe-input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-email"> <button type="submit" ng-bind="$ctrl.buttonText" class="subscribe-btn ng-binding">Subscribe</button></form></div><!-- end ngIf: !$ctrl.isSent --></md-subscription-form></div><div class="footer-cell text-center text-uppercase text-color-grey navigation"><a href="https://mlsdev.com/" class="footer-cell">HOME</a><a href="https://mlsdev.com/company" class="footer-cell">OUR COMPANY</a><a href="https://mlsdev.com/portfolio" class="footer-cell">PORTFOLIO</a><a href="https://mlsdev.com/blog" class="footer-cell">BLOG</a><a href="https://mlsdev.com/contact-us" class="footer-cell">CONTACT US</a><a href="https://mlsdev.com/privacypolicy" target="_blank" class="footer-cell">PRIVACY POLICY</a></div><div class="footer-cell text-center copyright"><span class="ng-binding">© 2017 MLSDev. All Rights Reserved.</span></div></div></footer></md-footer><md-user-leave class="user-leave ng-isolate-scope"><div ng-click="leave.close()" class="user-leave-shadow"></div><div class="user-leave-popup"><div class="web-summit-line"><div class="logo"></div><div class="text"><div class="place">Lisbon</div><div class="time">NOVEMBER 6-9<br>2017</div></div></div><div ng-click="leave.close()" class="close">×</div><!-- ngIf: leave.submited --><div ng-if="leave.submited" class="message ng-scope"><md-lead-form start="Going to web summit?&lt;br /&gt; Let’s schedule a meeting" value="Schedule" placeholder="Email" placeholder-name="Name" class="lead-leave-popup ng-isolate-scope"><!-- ngIf: !lead.sended --><form ng-submit="lead.submit()" name="leadForm" ng-if="!lead.sended" class="lead-form ng-pristine ng-scope ng-valid ng-valid-required ng-valid-email"><button ng-bind-html="lead.trust(lead.start)" name="send" ng-click="lead.click($event)" class="btn-default btn-inifinity btn-green_ text-uppercase lets-talk btn-desktop ng-binding">Going to web summit?<br> Let’s schedule a meeting</button><div class="lead-email"><!-- ngIf: lead.placeholderName --><input ng-if="lead.placeholderName" type="text" id="name" ng-model="lead.name" class="field ng-pristine ng-untouched ng-valid ng-scope ng-empty"><!-- end ngIf: lead.placeholderName --> <!-- ngIf: lead.placeholderName --><label for="name" ng-if="lead.placeholderName" ng-bind="lead.placeholderName" class="placeholder name-placeholder ng-binding ng-scope">Name</label><!-- end ngIf: lead.placeholderName --> <input type="email" id="email" ng-model="lead.email" ng-required="ng-required" ng-keydown="lead.valid()" class="field ng-pristine ng-untouched ng-empty ng-valid ng-valid-required ng-valid-email"> <label for="email" ng-bind="lead.placeholder" class="placeholder email-placeholder ng-binding">Email</label> <label for="email" ng-bind="lead.validationMessage" class="email-message ng-binding"></label></div></form><!-- end ngIf: !lead.sended --><!-- ngIf: lead.sended --></md-lead-form></div><!-- end ngIf: leave.submited --><!-- ngIf: !leave.submited --></div></md-user-leave><md-chat class="ng-isolate-scope"><!-- ngIf: chat.isAvailable --></md-chat></div><!-- ngIf: global.yandexMetrikaKey --><div ng-if="global.yandexMetrikaKey" class="ng-scope"><noscript class="ng-binding">&lt;img src=https://mc.yandex.ru/watch/25453430 style="position:absolute; left:-9999px;" alt=""&gt;</noscript></div><!-- end ngIf: global.yandexMetrikaKey --><script src="./Ruby on Rails E-commerce API for Beginners. Part 3. _ MLSDev_files/main-15d97c86a9.js"></script></body></html>

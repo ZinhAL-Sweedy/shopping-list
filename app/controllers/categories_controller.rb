@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
-  before_action :check_if_admin
-  before_action :authorise_user, :except => [:index,:show]
+  # before_action :check_if_admin only: [:edit, :update, :new, :create, :show, :index]
+  # # , only: [:edit, :update, :new, :create]
+  # before_action :check_if_logged_in, only: [:index,:show]
 
 
   def new
@@ -45,6 +46,12 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    if params[:search].present?
+        @category = Category.where(name:params[:search]).first
+
+        redirect_to "/categories/#{ @category.id }"
+    end
+
   end
 
   def destroy

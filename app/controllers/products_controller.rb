@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :check_if_admin
-  before_action :authorise_user, :except => [:index,:show] 
+  # before_action :check_if_admin
+  # before_action :check_if_logged_in, :except => [:index,:show]
 
   def new
     @product = Product.new
@@ -63,7 +63,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    # @products.variants
   end
 
   def destroy

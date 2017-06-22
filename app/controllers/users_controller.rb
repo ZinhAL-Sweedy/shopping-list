@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:show, :edit,:update]
-  before_action :check_if_admin, only: [ :index ]
-  before_action :check_if_logged_in, only: [ :shoppingList_create ]
+  before_action :get_user, only: [:show, :edit, :update]
+  # [:show, :edit,:update]
+  before_action :check_if_admin, only: [:edit, :update, :index]
+  before_action :check_if_logged_in
 
   def get_user
     @user = User.find params["id"]
   end
+
   def new
     @user = User.new
   end
@@ -25,16 +27,18 @@ class UsersController < ApplicationController
     @users = User.all
   end
   def edit
-    redirect_to root_path unless @current_user == @user
+    redirect_to root_path unless @current_user == @user || @current_user.admin?
   end
 
   def update
-    @user = @current_user
+    @user = @current_user unless @current_user.admin?  # admin can edit anyone
     @user.update user_params
   redirect_to user_path( params["id"] )
   end
 
   def show
+    redirect_to products_path unless @user == @current_user || @current_user.admin?
+    
   end
 
 

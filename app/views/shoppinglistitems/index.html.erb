@@ -3,15 +3,27 @@
 <%= form_tag shopping_list_quantities_path do %>
 
 <ul>
+  <% @total = 0 %>
   <% @shoppinglistitems.each do |s| %>
   <li>
     <%= link_to s.product.name, product_path(s.product) %>
-    <%= text_field_tag "item[#{s.product.id}]", s.quantity, size: 4 %>
+    <%= text_field_tag "item[#{s.product.id}]", s.quantity , size: 4 %>
+    <!-- , input_html: { min: 0 } -->
     <%= link_to 'Delete', shoppinglistitem_path(s), method: :delete %>
-
+    <%= link_to 'Back', :back %>
+    <% @total += (s.product.price * s.quantity) %>
   </li>
   <% end %>
 </ul>
 
-<%= submit_tag 'Update' %>
+<%= submit_tag 'Update the poduct list' %>
 <% end %>
+
+<%= button_to 'Add another product', products_path, method: :get %>
+
+
+<%# @shoppinglistitems.each do |s| %>
+<%#= s.product.price %>
+
+<%# end %>
+<p>Total Price: <%= number_to_currency @total %></p>

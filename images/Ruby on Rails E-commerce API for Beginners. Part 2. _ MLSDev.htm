@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://mlsdev.com/blog/43-ruby-on-rails-e-commerce-api-for-beginners-part-2 -->
+<html ng-app="mlsdev" ng-controller="GlobalController as global" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><!--<base href="/">--><base href="."><title ng-bind="global.page.meta.title" class="ng-binding">Ruby on Rails E-commerce API for Beginners. Part 2. | MLSDev</title><meta name="fragment" content="!"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"><!-- ngIf: global.page.meta.description --><meta ng-if="global.page.meta.description" name="description" content="A detailed tutorial for Ruby on Rails beginners who would like to learn how to create e-commerce API" class="ng-scope"><!-- end ngIf: global.page.meta.description --><!-- ngIf: global.page.meta.keywords --><meta ng-if="global.page.meta.keywords" name="keywords" content="Ruby on Rails, Ruby, API, RSpec, e-commerce, products, search, Full Text Search, PostgreSQL" class="ng-scope"><!-- end ngIf: global.page.meta.keywords --><meta name="google-site-verification" content="udpp98_YkWSOLKZQRAloDZ3HHVJ9ZVi5fug6whygsxw"><!-- ngIf: global.page.social.url --><meta ng-if="global.page.social.url" property="og:url" content="" class="ng-scope"><!-- end ngIf: global.page.social.url --><!-- ngIf: global.page.social.type --><meta ng-if="global.page.social.type" property="og:type" content="article" class="ng-scope"><!-- end ngIf: global.page.social.type --><!-- ngIf: global.page.social.title --><meta ng-if="global.page.social.title" property="og:title" content="Ruby on Rails E-commerce API for Beginners. Part 2." class="ng-scope"><!-- end ngIf: global.page.social.title --><!-- ngIf: global.page.social.description --><meta ng-if="global.page.social.description" property="og:description" content="A detailed tutorial for Ruby on Rails beginners who would like to learn how to create e-commerce API" class="ng-scope"><!-- end ngIf: global.page.social.description --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" property="og:image" content="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/225c5e44cc53127bde9d0a0cdc9088f87780e59c.jpg?1449060928" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" property="og:image:secure_url" content="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/225c5e44cc53127bde9d0a0cdc9088f87780e59c.jpg?1449060928" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" property="og:image:width" content="1080" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" property="og:image:height" content="1024" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.title --><meta ng-if="global.page.social.title" itemprop="name" content="Ruby on Rails E-commerce API for Beginners. Part 2." class="ng-scope"><!-- end ngIf: global.page.social.title --><!-- ngIf: global.page.social.url --><meta ng-if="global.page.social.url" itemprop="url" content="43-ruby-on-rails-e-commerce-api-for-beginners-part-2" class="ng-scope"><!-- end ngIf: global.page.social.url --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" itemprop="thumbnailUrl" content="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/225c5e44cc53127bde9d0a0cdc9088f87780e59c.jpg?1449060928" class="ng-scope"><!-- end ngIf: global.page.social.image --><!-- ngIf: global.page.social.image --><meta ng-if="global.page.social.image" itemprop="image" content="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/225c5e44cc53127bde9d0a0cdc9088f87780e59c.jpg?1449060928" class="ng-scope"><!-- end ngIf: global.page.social.image --><link rel="apple-touch-icon" sizes="180x180" href="https://mlsdev.com/icons/apple-touch-icon.png"><link rel="icon" type="image/png" href="https://mlsdev.com/icons/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="https://mlsdev.com/icons/favicon-194x194.png" sizes="194x194"><link rel="icon" type="image/png" href="https://mlsdev.com/icons/android-chrome-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="https://mlsdev.com/icons/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="https://mlsdev.com/icons/manifest.json"><link rel="mask-icon" href="https://mlsdev.com/icons/safari-pinned-tab.svg" color="#5bbad5"><link rel="shortcut icon" href="https://mlsdev.com/icons/favicon.ico"><meta name="msapplication-config" content="/icons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><meta name="google-site-verification" content="cF3iHkQn_SLiB6R3ESg6nJXX0DVJhfJ_hY-_tnmQlXk"><meta name="robots" content="index, follow"><script type="text/javascript" src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/watch.js"></script><script async="" src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/analytics.js"></script><script type="application/ld+json">{ "@context" : "http://schema.org", "@type": "Organization", "name": "MLSDev Inc.", "image": "https://mlsdev.com/images/logo_dark.svg", "url": "https://mlsdev.com", "description": "MLSDev specializes in providing all-in-one solution in mobile and web development. We follow Lean principles and work according to agile methodologies to deliver the best results reducing the budget for development and its timeline.", "sameAs": [ "https://www.facebook.com/MLSDev", "https://twitter.com/MLSDevCom", "https://instagram.com/mlsdev", "https://www.linkedin.com/company/mlsdev", "https://plus.google.com/u/0/117561677351053481936", "https://dribbble.com/mlsdev", "https://www.behance.net/mlsdev", "https://www.youtube.com/channel/UC3iwfhbc4whBaw2svPcznPA", "https://github.com/MLSDev" ], "address": { "@type": "PostalAddress", "addressCountry": "USA", "addressLocality": "San Francisco", "addressRegion": "CA" }, "email": "mailto:sales@mlsdev.com", "telephone": "+38(050)1861409", "potentialAction": { "@type": "SearchAction", "target": "https://mlsdev.com/api/articles?words={search_term_string}", "query-input": "required name=search_term_string" } }</script><link href="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/css" rel="stylesheet"><link href="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/css(1)" rel="stylesheet"><script src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/polyfill.min.js"></script><script src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/CSSPlugin.min.js"></script><script src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/EasePack.min.js"></script><script src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/TweenLite.min.js"></script><link rel="stylesheet" href="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/main-b385b12300.css"></head><body ng-class="global.getBodyClasses()" class=""><div class="wrapper"><md-preloader class="ng-isolate-scope"><!-- ngIf: preloader.isVisible --></md-preloader><md-header-left ng-class="{&#39;white-opacity&#39;: global.isHeaderWhite(), &#39;white-full&#39;: global.isHeaderFullWhite()}" class="ng-isolate-scope white-opacity"><a href="https://mlsdev.com/" ng-click="header.setActive(0)" ng-class="{visible: header.isVisible.toplogo, dark: header.isVisible.dark}" class="logo visible"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 72 72"><path d="M13.1,38.5c1,4.8-1.8,4.7-6.3-0.3c-5.8-6.5-9.3-13,0.7-15.1c17.3-3.5,21.3-12.6,24-17.4 c6.9-12.2,14,2.7,16.4,6.8c3.5,5.8,2.6,7.7-1.8,4.3c-9-6.9-12.9,5.5-17.6,9.2C22.4,30.6,10.9,28.3,13.1,38.5z" class="logofill emm"></path><path d="M12.2,62.7c0.3-4.1,0.8-21.3,4.5-10.1c1.8,5.5,7.8,9.9,13.3,9.9c5.5,0,4.9,2.2-1.3,4.9 C27.1,68.2,11.3,77.1,12.2,62.7z" class="logofill ell"></path><path d="M60.5,63.3c4.7,17.5-27.3-0.2-16.5-0.2c11.4,0,8.2-18.4,7.7-30.4c-0.7-16.8,28.4-10.2,16.3,0.5 C58.8,41.3,55.6,45.4,60.5,63.3z" class="logofill ess"></path></svg><span class="logo-text">MLSDev</span></a></md-header-left><md-header-right ng-class="{&#39;white-opacity&#39;: global.isHeaderWhite(), &#39;white-full&#39;: global.isHeaderFullWhite(), &#39;show-items&#39;: global.isHeaderItemsShow()}" class="ng-isolate-scope white-opacity show-items"><div ng-class="{unvisible: header.isVisible.hireus}" class="top-navigation-wrap unvisible"><a ui-sref="home" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;home&#39;)}" class="nav-item" href="https://mlsdev.com/">Home</a><a ui-sref="company" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;company&#39;)}" class="nav-item" href="https://mlsdev.com/company">Our company</a><a ui-sref="portfolio" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;portfolio&#39;)}" class="nav-item" href="https://mlsdev.com/portfolio">Portfolio</a><a ui-sref="blog" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;blog&#39;) || header.checkActiveState(&#39;article&#39;)}" class="nav-item active" href="https://mlsdev.com/blog">Blog</a><a ui-sref="contact-us" ng-class="{&#39;active&#39; : header.checkActiveState(&#39;contact-us&#39;)}" class="nav-item" href="https://mlsdev.com/contact-us">Contact us</a></div><div ng-class="{&#39;visible&#39;: header.hireUsVisibility}" class="button-container v-center-block visible"><a ui-sref="contact-us" ng-class="header.getAnimamBtnClass()" ng-click="header.trackHireUsGoal()" ng-bind="header.hireUsText" class="btn btn-green_ btn-talk-top btn-small ng-binding anim-btn-undefined" href="https://mlsdev.com/contact-us">LET'S TALK</a></div></md-header-right><md-go-top class="ng-isolate-scope"><div ng-click="goTop.goToTop()" ng-class="{&#39;show-btn&#39;: goTop.checkShowGoTopBtn()}" class="to-top-wrap"><i class="mdi mdi-arrow-up"></i></div></md-go-top><md-progress class="ng-isolate-scope"><div class="page-progress"></div></md-progress><!-- uiView: --><ui-view ng-hide="global.isShowPage404" autoscroll="" class="ng-scope"><div class="article ng-scope"><div class="article_head"><div class="article_head_text"><h1 class="article_title ng-binding">Ruby on Rails E-commerce API for Beginners. Part 2.</h1><div class="bottom-header-wrap"><div ng-bind="article.data.published | date: &#39;dd MMMM yyyy&#39;" class="article_date ng-binding">01 December 2015</div><div ng-bind="article.data.author" class="article_author ng-binding">Yuriy Blokhin. Junior Back End developer</div></div></div><!-- ngIf: article.data.imageIsLoaded --><img ng-if="article.data.imageIsLoaded" ng-src="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/225c5e44cc53127bde9d0a0cdc9088f87780e59c.jpg?1449060928" class="article_image ng-scope" src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/225c5e44cc53127bde9d0a0cdc9088f87780e59c.jpg"><!-- end ngIf: article.data.imageIsLoaded --><!-- ngIf: !article.data.imageIsLoaded --></div><!-- ngIf: article.data --><div ng-if="article.data" class="ng-scope"><div class="article_main"><md-shares title="article.data.title" class="social-buttons ng-isolate-scope"><div ng-class="shares.getClasses()" md-slide-position="md-slide-position" min-pos="50" max-pos="450" vh="35" max-pos-large="650" is-large="1900" class="social-shares-buttons v-center-container ng-isolate-scope" style="transition: transform 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) 0s; top: 50px; transform: translateY(0px);"><div class="subscribe-block"><md-subscription-form class="ng-isolate-scope"><div class="title-subscribe">Subscribe to our newsletter</div><!-- ngIf: $ctrl.isSent --><!-- ngIf: !$ctrl.isSent --><div ng-if="!$ctrl.isSent" class="ng-scope"><form name="$ctrl.form" ng-submit="$ctrl.subscribe($event)" ng-class="{invalid: $ctrl.isInvalid}" novalidate="novalidate" class="subscribe-form ng-pristine ng-invalid ng-invalid-required ng-valid-email"><input type="email" placeholder="Enter your email" ng-change="$ctrl.onChange()" ng-model="$ctrl.email" required="required" class="subscribe-input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-email"> <button type="submit" ng-bind="$ctrl.buttonText" class="subscribe-btn ng-binding">Subscribe</button></form></div><!-- end ngIf: !$ctrl.isSent --></md-subscription-form></div><a ng-click="shares.share(&#39;facebook&#39;)" title="Share in facebook" class="icon-block v-line-block"><i class="mdi mdi-facebook"></i></a><a ng-click="shares.share(&#39;twitter&#39;)" title="Share in twitter" class="icon-block v-line-block"><i class="mdi mdi-twitter"></i></a><a ng-click="shares.share(&#39;google&#39;)" title="Share in Google+" class="icon-block v-line-block"><i class="mdi mdi-google-plus"></i></a><a ng-click="shares.share(&#39;linkedin&#39;)" title="Share in LinkedIn" class="icon-block v-line-block"><i class="mdi mdi-linkedin"></i></a></div></md-shares><div class="tags"><span ng-bind="article.data.category" class="ng-binding">Development</span>&nbsp;</div><div ng-bind-html="article.trust(article.data.content)" class="article_text ng-binding"><p>Hello everyone! Hope you liked <a href="http://mlsdev.com/blog/42">the first part of our tutorial</a> and it didn’t cost you a great deal of time and effort to create products.&nbsp;<br>
+&nbsp;</p>
+<p>Are you ready to continue the development and follow the next part of our “recipe”? If so, we can move forward to the product search.&nbsp;</p>
+
+<p>What if you will have to search products by first letters of their names (autocomplete) or by full words (Full Text Search)? We will review both options in this guide for you not to have unnecessary difficulties when creating an e-commerce platform.</p>
+
+<p>So, the first task assigned for today is to show a user products, names of which start with the letters he/she enters in the search box. This could be implemented with the help of SQL operators LIKE and ILIKE (available in PostgreSQL). The difference between them is that ILIKE ignores the register, so we will use this very operator in the development.</p>
+
+<p>Let’s write a class method for our model app/models/product.rb and name it .search_by.</p>
+
+<pre class="language-ruby">  <code>
+class Product &lt; ActiveRecord::Base
+  class &lt;&lt; self
+    def search_by params = {}
+      params = params.try(:symbolize_keys) || {}
+    end
+  end
+end
+</code>
+</pre>
+
+<p>This method will take hash-parameters that come from the client’s side (entered by a user). If the keys of the hash (associative array) are in the form of lines, transfer them into symbols.</p>
+
+<pre class="language-ruby">  <code>
+class Product &lt; ActiveRecord::Base
+  class &lt;&lt; self
+    def search_by params = {}
+      params = params.try(:symbolize_keys) || {}
+
+      collection = all
+
+      if params[:term].present?
+        collection = collection.where('name ILIKE ?', "#{ params[:term] }%")
+      end
+
+      collection
+    end
+  end
+end
+  </code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>term is the first letter(s) or a phrase of a product name. If it is seen in</p>
+
+<pre class="language-ruby">  <code>
+if params[:term].present?
+  </code>
+</pre>
+
+<p><code>and does not appear an empty line it means that we do the search.</code></p>
+
+<p><code>The sign % at the end of&nbsp;</code></p>
+
+<pre class="language-ruby">  <code>
+"#{ params[:term] }%"
+  </code>
+</pre>
+
+<p>means that the phrase (term), according to which the search is done, is placed at the beginning of the product’s name.</p>
+
+<p>Let’s make a brief summary of the above information. The .search_by method when run will return either search results if to pass the term parameter there or all products from the database.</p>
+
+<p>Do not forget to write tests that will cover the .search_by method. Go to spec/models/product_spec.rb to do that.</p>
+
+<pre class="language-ruby">  <code>
+require 'rails_helper'
+
+RSpec.describe Product, type: :model do
+  describe '.search_by' do
+    let(:relation) { double }
+
+    before { expect(Product).to receive(:all).and_return(relation) }
+
+    context do
+      it { expect { Product.search_by }.to_not raise_error }
+    end
+
+    context do
+      before { expect(relation).to receive(:where).with('name ILIKE ?', 'abc%') }
+
+      it { expect { Product.search_by 'term' =&gt; 'abc' }.to_not raise_error }
+    end
+  end
+end
+  </code>
+</pre>
+
+<p>The above test covers both options of the .search_by method performing. You should run it using the following command:</p>
+
+<pre class="language-bash">  <code>
+$ rake
+  </code>
+</pre>
+
+<p>Do you remember the controller app/controllers/api/products_controllers.rb we created last time? Let’s go there and correct the #collection method.</p>
+
+<pre class="language-ruby">  <code>
+class Api::ProductsController &lt; ApplicationController
+  private
+  def collection
+    @products ||= Product.search_by(params)
+  end
+
+  ....
+end
+  </code>
+</pre>
+
+<p>Don’t forget to correct the spec/controllers/api/products_controller_spec.rb tests afterwards too.</p>
+
+<pre class="language-ruby">  <code>
+RSpec.describe Api::ProductsController, type: :controller do
+  ....
+
+  describe '#collection' do
+    before { expect(subject).to receive(:params).and_return(:params) }
+
+    before { expect(Product).to receive(:search_by).with(params) }
+
+    it { expect { subject.send :collection }.to_not raise_error }
+  end
+
+  ....
+end
+  </code>
+</pre>
+
+<p>Excellent! The search is ready. We need to check its performance with the curl command, but let’s add more products to the database first, 1000 for example. The faker gem will help us do it. You can find the description of it here: <a href="https://github.com/stympy/faker" target="_blank" rel="nofollow">https://github.com/stympy/faker</a>.</p>
+
+<p>Connect the gem to the development and test modes in&nbsp;Gemfile.</p>
+
+<pre class="language-ruby">  <code>
+group :development, :test do
+  gem 'faker'
+end
+  </code>
+</pre>
+
+<p>Don’t forget to run the command:</p>
+
+<pre class="language-bash">  <code>
+$ bundle install
+  </code>
+</pre>
+
+<p>To continue go to the db/seeds.rb file. It is used to fill the database with the initial information. Write the following there:</p>
+
+<pre class="language-ruby">  <code>
+1000.times do
+  Product.create \
+    name: Faker::Commerce.product_name,
+    price: Faker::Number.between(1, 150),
+    description: Faker::Commerce.department
+end
+  </code>
+</pre>
+
+<p>Then run the command in the console:</p>
+
+<pre class="language-bash">  <code>
+$ rake db:seed
+  </code>
+</pre>
+
+<p>It will be a bit time-consuming, but we are not in a hurry. The most important is the quality of development. Just wait and start the server after the process is finished.</p>
+
+<pre class="language-bash">  <code>
+$ rails server
+  </code>
+</pre>
+
+<p>Then enter the curl command in the console:</p>
+
+<pre class="language-bash">  <code>
+$ curl "http://localhost:3000/api/products" -H "Accept: application/json" -X GET -d "term=a"
+  </code>
+</pre>
+
+<p>If your try is successful you will see the information about all products names of which start with “a”.</p>
+
+<p>The task is accomplished. We have 1002 products in the database at the moment but the request can return information about all of them together. This amount of data is too big for a person to learn it at a heat. So let’s do it in such a way that the products return in bundles of about 25 product names in each.&nbsp;</p>
+
+<p>Let’s implement pagination. We will use the kaminari gem for that. You could find its description here: <a href="https://github.com/amatsuda/kaminari" target="_blank" rel="nofollow">https://github.com/amatsuda/kaminari</a>.</p>
+
+<p>Add it to Gemfile.</p>
+
+<pre class="language-ruby">  <code>
+gem 'kaminari'
+  </code>
+</pre>
+
+<p>Run the following command &nbsp;in the console:</p>
+
+<pre class="language-bash">  <code>
+$ bundle install
+  </code>
+</pre>
+
+<p>We need to get back to the .search_by method and make some changes there:</p>
+
+<pre class="language-ruby">  <code>
+def search_by params = {}
+  params = params.try(:symbolize_keys) || {}
+
+  collection = page(params[:page])
+
+  if params[:term].present?
+    collection = collection.where('name ILIKE ?', "#{ params[:term] }%")
+  end
+
+  collection
+end
+  </code>
+</pre>
+
+<p>The .page method considers the number of a page a user wants to see as a parameter. By default, the number of elements per page is 25 and it means we will not need to change anything. Don’t forget to correct the tests.</p>
+
+<pre class="language-ruby">  <code>
+describe '.search_by' do
+  let(:relation) { double }
+
+  before { expect(Product).to receive(:page).with(1).and_return(relation) }
+
+  context do
+    it { expect { Product.search_by 'page' =&gt; 1 }.to_not raise_error }
+  end
+
+  context do
+    before { expect(relation).to receive(:where).with('name ILIKE ?', 'abc%') }
+
+    it { expect { Product.search_by 'page' =&gt; 1, 'term' =&gt; 'abc' }.to_not raise_error }
+  end
+end
+  </code>
+</pre>
+
+<p>Let’s check it with the curl command in the console:</p>
+
+<pre class="language-bash">  <code>
+$ curl "http://localhost:3000/api/products" -H "Accept: application/json" -X GET -d "page=1"
+  </code>
+</pre>
+
+<p>If your have followed the instructions correctly you will see the information about the first 25 products from the database on the screen.</p>
+
+<p>Let’s move to the next task which is searching products by full words. It may seem quite easy to do but don’t forget that a word can be at the beginning, in the middle and at the end of a name. To accomplish this task we will use Full Text Search in PostgreSQL.<br>
+&nbsp;<br>
+Full Text Search is an automated documentary search where instead of a document search image its full text or its significant text parts with a morphological vocabulary are used. You can learn more here: <a href="http://www.postgresql.org/docs/8.3/static/textsearch.html" target="_blank" rel="nofollow">http://www.postgresql.org/docs/8.3/static/textsearch.html</a>.</p>
+
+<p>Do you mind making this task more complicated? Hopefully, you don’t because we are going to search products not only by names but by their description as well. Moreover, results by name have to be displayed first and those by description should go next. So, we will sort them actually.</p>
+
+<p>To do Full Text Search we need the pg_search gem. Its description can be found here: <a href="https://github.com/Casecommons/pg_search" target="_blank" rel="nofollow">https://github.com/Casecommons/pg_search</a>.&nbsp;</p>
+
+<p>Add it to Gemfile.</p>
+
+<pre class="language-ruby">  <code>
+gem 'pg_search'
+  </code>
+</pre>
+
+<p>Then run the following command in the console:</p>
+
+<pre class="language-bash">  <code>
+$ bundle install
+  </code>
+</pre>
+
+<p>Go to the file app/models/product.rb and add there:</p>
+
+<pre class="language-ruby">  <code>
+class Product &lt; ActiveRecord::Base
+  include PgSearch
+
+  pg_search_scope :search,
+    against: {
+      name: :A,
+      description: :B
+    },
+    using: {
+      tsearch: { dictionary: :english }
+    }
+
+    ....
+end
+  </code>
+</pre>
+
+<p>Let’s analyze and explain the code. There is nothing unusual in the line</p>
+
+<pre class="language-ruby">  <code>
+include PgSearch
+  </code>
+</pre>
+
+<p>It connects the module necessary for the pg_search gem work. Then we create the .search method that will accept a line - a phrase or one word (search parameters). After that the search is specified by two fields: name and description. The importance of the name field has A priority and the importance of the description field has B priority. It is done so to make the results by name appear first. FTS has A, B,C and D priorities. A means the highest priority and D has the lowest one. Then the code states that we will use just FTS search from the three types available in this gem: Full text search, trigram - Trigram search, dmetaphone - Double Metaphone search. Finally, we specify that FTS should use the English dictionary.</p>
+
+<p>Remember to correct the .search_by method:</p>
+
+<pre class="language-ruby">  <code>
+def search_by params = {}
+  params = params.try(:symbolize_keys) || {}
+
+  collection = page(params[:page])
+
+  if params[:term].present?
+    collection = collection.where('name ILIKE ?', "#{ params[:term] }%")
+  end
+
+  if params[:name].present?
+    collection = collection.search(params[:name])
+  end
+
+  collection
+end
+  </code>
+</pre>
+
+<p>If name returns in the parameters the method will do FTS search by name and description.&nbsp;</p>
+
+<p>You should also keep in mind to correct the test spec/models/product_spec.rb:</p>
+
+<pre class="language-ruby">  <code>
+RSpec.describe Product, type: :model do
+  it { should be_a PgSearch }
+
+  describe '.search_by' do
+    let(:relation) { double }
+
+    before { expect(Product).to receive(:page).with(1).and_return(relation) }
+
+    context do
+      it { expect { Product.search_by 'page' =&gt; 1 }.to_not raise_error }
+    end
+
+    context do
+      before { expect(relation).to receive(:where).with('name ILIKE ?', 'abc%') }
+
+      it { expect { Product.search_by 'page' =&gt; 1, 'term' =&gt; 'abc' }.to_not raise_error }
+    end
+
+    context do
+      before { expect(relation).to receive(:search).with('word') }
+
+      it { expect { Product.search_by 'page' =&gt; 1, 'name' =&gt; 'word' }.to_not raise_error }
+    end
+  end
+end
+  </code>
+</pre>
+
+<p>Don’t forget about the command:</p>
+
+<pre class="language-bash">  <code>
+$ rake
+  </code>
+</pre>
+
+<p>Everything seems to be done so far, but we need to make sure it really works. The curl command can be of great help here:</p>
+
+<pre class="language-bash">  <code>
+$ curl "http://localhost:3000/api/products" -H "Accept: application/json" -X GET -d "name=apples&amp;page=1"
+  </code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>Wonderful! Today’s mission looks like fully completed.&nbsp;</p>
+
+<p>We are sure you have managed to do it. Your e-commerce API works at this stage and you are one more step closer to being a Ruby on Rails professional developer.</p>
+
+<p>Keep training and don’t forget to follow next parts of our tutorial! Our team believes in you!</p>
+</div><div class="tags"><span ng-bind="article.data.category" class="ng-binding">Development</span></div></div><div class="related-posts-wrap"><h3 class="related-header">Related Articles</h3><div class="related-items-wrap"><!-- ngRepeat: itemRel in article.data.related | limitTo: 3 --><a ng-repeat="itemRel in article.data.related | limitTo: 3" ui-sref="article({articleId: itemRel.slug})" class="related-item ng-scope" href="https://mlsdev.com/blog/61-why-startups-use-ruby-on-rails"><img ng-src="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/3ec78725fbe64926ff445d5b1def36515afcd670.png?1461061124" alt="61-why-startups-use-ruby-on-rails" class="rel-item-image" src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/3ec78725fbe64926ff445d5b1def36515afcd670.png"><h4 class="rel-item-text"><span ng-bind="itemRel.title" class="ng-binding">Why Startups Use Ruby on Rails?</span></h4></a><!-- end ngRepeat: itemRel in article.data.related | limitTo: 3 --><a ng-repeat="itemRel in article.data.related | limitTo: 3" ui-sref="article({articleId: itemRel.slug})" class="related-item ng-scope" href="https://mlsdev.com/blog/44-ruby-on-rails-e-commerce-api-for-beginners-part-3"><img ng-src="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/af4d7bcf3690a7a3ce68cf299faf97744971b26e.jpg?1450269999" alt="44-ruby-on-rails-e-commerce-api-for-beginners-part-3" class="rel-item-image" src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/af4d7bcf3690a7a3ce68cf299faf97744971b26e.jpg"><h4 class="rel-item-text"><span ng-bind="itemRel.title" class="ng-binding">Ruby on Rails E-commerce API for Beginners. Part 3.</span></h4></a><!-- end ngRepeat: itemRel in article.data.related | limitTo: 3 --><a ng-repeat="itemRel in article.data.related | limitTo: 3" ui-sref="article({articleId: itemRel.slug})" class="related-item ng-scope" href="https://mlsdev.com/blog/42-ruby-on-rails-e-commerce-api-for-beginners-part-1"><img ng-src="https://d32myzxfxyl12w.cloudfront.net/images/blog_images/1597b73d16c8fbbf804f9ac0824d9271d262f65d.jpg?1447850372" alt="42-ruby-on-rails-e-commerce-api-for-beginners-part-1" class="rel-item-image" src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/1597b73d16c8fbbf804f9ac0824d9271d262f65d.jpg"><h4 class="rel-item-text"><span ng-bind="itemRel.title" class="ng-binding">Ruby on Rails E-commerce API for Beginners. Part 1.</span></h4></a><!-- end ngRepeat: itemRel in article.data.related | limitTo: 3 --></div></div><div class="social-buttons"><md-company-links element-class="v-center-block" class="v-center-container ng-isolate-scope"><!-- ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.facebook.com/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.facebook.com/MLSDev"><i ng-class="item.classes" class="mdi mdi-facebook"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://twitter.com/MLSDevCom" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://twitter.com/MLSDevCom"><i ng-class="item.classes" class="mdi mdi-twitter"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://plus.google.com/+MlsdevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://plus.google.com/+MlsdevInc"><i ng-class="item.classes" class="mdi mdi-google-plus"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.linkedin.com/company/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.linkedin.com/company/MLSDev"><i ng-class="item.classes" class="mdi mdi-linkedin"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.instagram.com/mlsdev/" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.instagram.com/mlsdev/"><i ng-class="item.classes" class="mdi mdi-instagram"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://dribbble.com/mlsdev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://dribbble.com/mlsdev"><i ng-class="item.classes" class="mdi mdi-dribbble"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.behance.net/MLSDevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.behance.net/MLSDevInc"><i ng-class="item.classes" class="mdi mdi-behance"></i></a><!-- end ngRepeat: item in links.items --></md-company-links></div></div><!-- end ngIf: article.data --></div></ui-view><!-- ngIf: global.isShowPage404 --><md-side-menu class="ng-isolate-scope"><div ng-class="{visible: menu.isVisibleControls.sandwich||menu.isVisible}" class="menu-container v-center-block visible"><a ng-click="menu.menuClick()" class="btn btn-menu"><span ng-class="{&quot;is-clicked&quot;: menu.isVisible}" class="btn-menu-icon"></span></a></div><div ng-class="{visible: menu.isVisible}" class="side-menu"><div class="svg-logo"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 72 72" style="enable-background:new 0 0 72 72;" xml:space="preserve"><g><g><path d="M13.1,38.5c1,4.8-1.8,4.7-6.3-0.3c-5.8-6.5-9.3-13,0.7-15.1c17.3-3.5,21.3-12.6,24-17.4 c6.9-12.2,14,2.7,16.4,6.8c3.5,5.8,2.6,7.7-1.8,4.3c-9-6.9-12.9,5.5-17.6,9.2C22.4,30.6,10.9,28.3,13.1,38.5z" class="logo st0"></path></g><g><path d="M12.2,62.7c0.3-4.1,0.8-21.3,4.5-10.1c1.8,5.5,7.8,9.9,13.3,9.9c5.5,0,4.9,2.2-1.3,4.9 C27.1,68.2,11.3,77.1,12.2,62.7z" class="logo st0"></path></g><g><path d="M60.5,63.3c4.7,17.5-27.3-0.2-16.5-0.2c11.4,0,8.2-18.4,7.7-30.4c-0.7-16.8,28.4-10.2,16.3,0.5 C58.8,41.3,55.6,45.4,60.5,63.3z" class="logo st0"></path></g></g></svg></div><div class="menu-block"><ul><li><a ng-click="menu.menuClick()" ui-sref="home" ng-class="{active: menu.stateActive(&#39;home&#39;)}" href="https://mlsdev.com/">Home</a></li><li><a ng-click="menu.menuClick()" ui-sref="company" ng-class="{active: menu.stateActive(&#39;company&#39;)}" href="https://mlsdev.com/company">Our company</a></li><li><a ng-click="menu.menuClick()" ui-sref="portfolio" ng-class="{active: menu.stateActive(&#39;portfolio&#39;)}" href="https://mlsdev.com/portfolio">Portfolio</a></li><li><a ng-click="menu.menuClick()" ui-sref="blog" ng-class="{active: menu.stateActive(&#39;blog&#39;)}" href="https://mlsdev.com/blog">Blog</a></li><li><a ng-click="menu.menuClick()" ui-sref="contact-us" ng-class="{active: menu.stateActive(&#39;contact-us&#39;)}" href="https://mlsdev.com/contact-us">Contact us</a></li></ul></div><div class="footer-block"><div md-slider="headerNews" auto-switching="true" delay="4000" event="click" initialize-state="true" switching-enabled="menu.isVisible" class="news-block ng-isolate-scope"><div class="footer-cell-header">What’s new</div><div class="news-container footer-content text-color-grey"><div slider-content-type="slide" md-slider-element="headerNews" class="news ng-isolate-scope slider-element active">How to Choose the Right Development Platform for a Mobile App?&nbsp;<span class="text-uppercase text-color-green">Read more</span></div><div slider-content-type="slide" md-slider-element="headerNews" class="news ng-isolate-scope slider-element next">News 2&nbsp;<span class="text-uppercase text-color-green">Read more</span></div><div slider-content-type="slide" md-slider-element="headerNews" class="news ng-isolate-scope slider-element">News 3&nbsp;<span class="text-uppercase text-color-green">Read more</span></div><div slider-content-type="slide" md-slider-element="headerNews" class="news ng-isolate-scope slider-element prev">News 4&nbsp;<span class="text-uppercase text-color-green">Read more</span></div></div><div class="navigation-container inline-container"><div slider-content-type="switch" md-slider-element="headerNews" class="navigation-point ng-isolate-scope active"></div><div slider-content-type="switch" md-slider-element="headerNews" class="navigation-point ng-isolate-scope"></div><div slider-content-type="switch" md-slider-element="headerNews" class="navigation-point ng-isolate-scope"></div><div slider-content-type="switch" md-slider-element="headerNews" class="navigation-point ng-isolate-scope"></div></div></div><div class="social-buttons"><md-company-links element-class="v-center-block" class="v-center-container ng-isolate-scope"><!-- ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.facebook.com/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.facebook.com/MLSDev"><i ng-class="item.classes" class="mdi mdi-facebook"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://twitter.com/MLSDevCom" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://twitter.com/MLSDevCom"><i ng-class="item.classes" class="mdi mdi-twitter"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://plus.google.com/+MlsdevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://plus.google.com/+MlsdevInc"><i ng-class="item.classes" class="mdi mdi-google-plus"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.linkedin.com/company/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.linkedin.com/company/MLSDev"><i ng-class="item.classes" class="mdi mdi-linkedin"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.instagram.com/mlsdev/" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.instagram.com/mlsdev/"><i ng-class="item.classes" class="mdi mdi-instagram"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://dribbble.com/mlsdev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://dribbble.com/mlsdev"><i ng-class="item.classes" class="mdi mdi-dribbble"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.behance.net/MLSDevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.behance.net/MLSDevInc"><i ng-class="item.classes" class="mdi mdi-behance"></i></a><!-- end ngRepeat: item in links.items --></md-company-links></div></div></div></md-side-menu><md-footer class="ng-isolate-scope"><footer id="footer"><div class="footer-container"><div class="footer-cell contacts-block"><div class="footer-cell-header">Contact us</div><div class="footer-content inline-container"><div class="contacts v-center-container"><div class="icon-block v-center-block nohover"><i class="mdi mdi-cellphone-iphone"></i></div><div class="v-center-block"><div class="text-color-grey">Phones</div><a href="tel:+380975058161" class="text-color-green">+38 (097) 505 81 61</a></div></div><div class="contacts v-center-container"><div class="icon-block v-center-block nohover"><i class="mdi mdi-email-outline"></i></div><div class="v-center-block"><div class="text-color-grey">Email</div><a href="mailto:sales@mlsdev.com" class="text-color-green">sales@mlsdev.com</a><a href="mailto:job@mlsdev.com" class="text-color-green">job@mlsdev.com</a></div></div></div></div><div class="footer-cell social-block"><div class="footer-cell-header">Follow us on</div><md-company-links element-class="v-center-block" class="footer-content v-center-container-simple ng-isolate-scope"><!-- ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.facebook.com/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.facebook.com/MLSDev"><i ng-class="item.classes" class="mdi mdi-facebook"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://twitter.com/MLSDevCom" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://twitter.com/MLSDevCom"><i ng-class="item.classes" class="mdi mdi-twitter"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://plus.google.com/+MlsdevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://plus.google.com/+MlsdevInc"><i ng-class="item.classes" class="mdi mdi-google-plus"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.linkedin.com/company/MLSDev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.linkedin.com/company/MLSDev"><i ng-class="item.classes" class="mdi mdi-linkedin"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.instagram.com/mlsdev/" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.instagram.com/mlsdev/"><i ng-class="item.classes" class="mdi mdi-instagram"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://dribbble.com/mlsdev" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://dribbble.com/mlsdev"><i ng-class="item.classes" class="mdi mdi-dribbble"></i></a><!-- end ngRepeat: item in links.items --><a ng-repeat="item in links.items" ng-href="http://www.behance.net/MLSDevInc" rel="nofollow noopener noreferrer" target="_blank" ng-class="links.class" class="icon-block ng-scope v-center-block" href="http://www.behance.net/MLSDevInc"><i ng-class="item.classes" class="mdi mdi-behance"></i></a><!-- end ngRepeat: item in links.items --></md-company-links></div><div md-slider="footer" auto-switching="true" delay="4000" event="click" initialize-state="true" switching-enabled="footer.isVisible" class="footer-cell news-block ng-isolate-scope"><div class="footer-cell-header">What’s new</div><div class="news-container footer-content text-color-grey"><!-- ngRepeat: news in footer.news.list --><a ng-repeat="news in footer.news.list" slider-content-type="slide" md-slider-element="footer" ui-sref="article({articleId: &#39;129-how-to-engage-and-retain-app-users-part-1-engagement&#39;})" class="news ng-scope ng-isolate-scope slider-element active" href="https://mlsdev.com/blog/129-how-to-engage-and-retain-app-users-part-1-engagement"><span ng-bind="news.title" class="ng-binding">How to Engage and Retain App Users? Part 1: Engagement</span><span>&nbsp;</span><span class="text-uppercase text-color-green">read more</span></a><!-- end ngRepeat: news in footer.news.list --><a ng-repeat="news in footer.news.list" slider-content-type="slide" md-slider-element="footer" ui-sref="article({articleId: &#39;128-microservices-vs-monoliths-how-to-understand-when-it-s-time-to-use-the-former-option&#39;})" class="news ng-scope ng-isolate-scope slider-element next" href="https://mlsdev.com/blog/128-microservices-vs-monoliths-how-to-understand-when-it-s-time-to-use-the-former-option"><span ng-bind="news.title" class="ng-binding">Microservices vs Monoliths: How to Understand When It's Time to Use the Former Option?</span><span>&nbsp;</span><span class="text-uppercase text-color-green">read more</span></a><!-- end ngRepeat: news in footer.news.list --><a ng-repeat="news in footer.news.list" slider-content-type="slide" md-slider-element="footer" ui-sref="article({articleId: &#39;127-top-strategies-to-increase-app-downloads&#39;})" class="news ng-scope ng-isolate-scope slider-element" href="https://mlsdev.com/blog/127-top-strategies-to-increase-app-downloads"><span ng-bind="news.title" class="ng-binding">Top Strategies to Increase App Downloads </span><span>&nbsp;</span><span class="text-uppercase text-color-green">read more</span></a><!-- end ngRepeat: news in footer.news.list --><a ng-repeat="news in footer.news.list" slider-content-type="slide" md-slider-element="footer" ui-sref="article({articleId: &#39;126-50-shades-of-wordpress-is-it-worth-a-try&#39;})" class="news ng-scope ng-isolate-scope slider-element prev" href="https://mlsdev.com/blog/126-50-shades-of-wordpress-is-it-worth-a-try"><span ng-bind="news.title" class="ng-binding">50 Shades of Wordpress: Is It Worth a Try?</span><span>&nbsp;</span><span class="text-uppercase text-color-green">read more</span></a><!-- end ngRepeat: news in footer.news.list --></div><div class="navigation-container inline-container"><!-- ngRepeat: news in footer.news.list --><div ng-repeat="news in footer.news.list" slider-content-type="switch" md-slider-element="footer" class="navigation-point ng-scope ng-isolate-scope active"></div><!-- end ngRepeat: news in footer.news.list --><div ng-repeat="news in footer.news.list" slider-content-type="switch" md-slider-element="footer" class="navigation-point ng-scope ng-isolate-scope"></div><!-- end ngRepeat: news in footer.news.list --><div ng-repeat="news in footer.news.list" slider-content-type="switch" md-slider-element="footer" class="navigation-point ng-scope ng-isolate-scope"></div><!-- end ngRepeat: news in footer.news.list --><div ng-repeat="news in footer.news.list" slider-content-type="switch" md-slider-element="footer" class="navigation-point ng-scope ng-isolate-scope"></div><!-- end ngRepeat: news in footer.news.list --></div></div><div class="footer-cell subscribe-block"><md-subscription-form class="ng-isolate-scope"><div class="title-subscribe">Subscribe to our newsletter</div><!-- ngIf: $ctrl.isSent --><!-- ngIf: !$ctrl.isSent --><div ng-if="!$ctrl.isSent" class="ng-scope"><form name="$ctrl.form" ng-submit="$ctrl.subscribe($event)" ng-class="{invalid: $ctrl.isInvalid}" novalidate="novalidate" class="subscribe-form ng-pristine ng-invalid ng-invalid-required ng-valid-email"><input type="email" placeholder="Enter your email" ng-change="$ctrl.onChange()" ng-model="$ctrl.email" required="required" class="subscribe-input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-email"> <button type="submit" ng-bind="$ctrl.buttonText" class="subscribe-btn ng-binding">Subscribe</button></form></div><!-- end ngIf: !$ctrl.isSent --></md-subscription-form></div><div class="footer-cell text-center text-uppercase text-color-grey navigation"><a href="https://mlsdev.com/" class="footer-cell">HOME</a><a href="https://mlsdev.com/company" class="footer-cell">OUR COMPANY</a><a href="https://mlsdev.com/portfolio" class="footer-cell">PORTFOLIO</a><a href="https://mlsdev.com/blog" class="footer-cell">BLOG</a><a href="https://mlsdev.com/contact-us" class="footer-cell">CONTACT US</a><a href="https://mlsdev.com/privacypolicy" target="_blank" class="footer-cell">PRIVACY POLICY</a></div><div class="footer-cell text-center copyright"><span class="ng-binding">© 2017 MLSDev. All Rights Reserved.</span></div></div></footer></md-footer><md-user-leave class="user-leave ng-isolate-scope"><div ng-click="leave.close()" class="user-leave-shadow"></div><div class="user-leave-popup"><div class="web-summit-line"><div class="logo"></div><div class="text"><div class="place">Lisbon</div><div class="time">NOVEMBER 6-9<br>2017</div></div></div><div ng-click="leave.close()" class="close">×</div><!-- ngIf: leave.submited --><div ng-if="leave.submited" class="message ng-scope"><md-lead-form start="Going to web summit?&lt;br /&gt; Let’s schedule a meeting" value="Schedule" placeholder="Email" placeholder-name="Name" class="lead-leave-popup ng-isolate-scope"><!-- ngIf: !lead.sended --><form ng-submit="lead.submit()" name="leadForm" ng-if="!lead.sended" class="lead-form ng-pristine ng-scope ng-valid ng-valid-required ng-valid-email"><button ng-bind-html="lead.trust(lead.start)" name="send" ng-click="lead.click($event)" class="btn-default btn-inifinity btn-green_ text-uppercase lets-talk btn-desktop ng-binding">Going to web summit?<br> Let’s schedule a meeting</button><div class="lead-email"><!-- ngIf: lead.placeholderName --><input ng-if="lead.placeholderName" type="text" id="name" ng-model="lead.name" class="field ng-pristine ng-untouched ng-valid ng-scope ng-empty"><!-- end ngIf: lead.placeholderName --> <!-- ngIf: lead.placeholderName --><label for="name" ng-if="lead.placeholderName" ng-bind="lead.placeholderName" class="placeholder name-placeholder ng-binding ng-scope">Name</label><!-- end ngIf: lead.placeholderName --> <input type="email" id="email" ng-model="lead.email" ng-required="ng-required" ng-keydown="lead.valid()" class="field ng-pristine ng-untouched ng-empty ng-valid ng-valid-required ng-valid-email"> <label for="email" ng-bind="lead.placeholder" class="placeholder email-placeholder ng-binding">Email</label> <label for="email" ng-bind="lead.validationMessage" class="email-message ng-binding"></label></div></form><!-- end ngIf: !lead.sended --><!-- ngIf: lead.sended --></md-lead-form></div><!-- end ngIf: leave.submited --><!-- ngIf: !leave.submited --></div></md-user-leave><md-chat class="ng-isolate-scope"><!-- ngIf: chat.isAvailable --></md-chat></div><!-- ngIf: global.yandexMetrikaKey --><div ng-if="global.yandexMetrikaKey" class="ng-scope"><noscript class="ng-binding">&lt;img src=https://mc.yandex.ru/watch/25453430 style="position:absolute; left:-9999px;" alt=""&gt;</noscript></div><!-- end ngIf: global.yandexMetrikaKey --><script src="./Ruby on Rails E-commerce API for Beginners. Part 2. _ MLSDev_files/main-15d97c86a9.js"></script></body></html>
