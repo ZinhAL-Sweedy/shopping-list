@@ -1,7 +1,8 @@
 <h2>shoppinglistitems Index</h2>
+<!-- list all the shopping list items and the quantities for each product  -->
 
 <%= form_tag shopping_list_quantities_path do %>
-
+<!-- loop through the shoppinglistitemsto get the quntites for each product -->
 <ul>
   <div class="form-group">
   <% @total = 0 %>
@@ -12,13 +13,14 @@
     <!-- , input_html: { min: 0 } -->
     <%= link_to 'Delete', shoppinglistitem_path(s), method: :delete %>
     <%= link_to 'Back', :back %>
+    <!-- calculate the total price for each product by multipling with the quantity -->
     <% @total += (s.product.price * s.quantity) %>
   </li>
   <% end %>
   </div>
 </ul>
-
-<%= submit_tag 'Update the poduct list', class:" btn btn-succesbtn btn-success"%>
+<!-- add button to update  the products in the shoppinglistitems -->
+<%= submit_tag 'Update the product list', class:" btn btn-succesbtn btn-success"%>
 <% end %>
 <br>
 <%= button_to 'Add another product', products_path, method: :get, class:"btn btn-success btn btn-success" %>
@@ -29,4 +31,5 @@
 
 <%# end %>
 <br>
+<!-- print the total for each user in his ShoppingListItem -->
 <p>Total Price: <%= number_to_currency @total %></p>

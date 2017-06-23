@@ -1,4 +1,5 @@
 <h2>Edit Shoppinglistitems</h2>
+<!-- editing shoppinglistitems  loop through the products and show the user name -->
 <%= form_for @shoppinglistitem do |s| %>
   <p>
     List of Users
@@ -7,6 +8,7 @@
   </p>
   <br>
   <p>
+    <!-- list sll the products -->
     List of Products
     <%= s.label :product_id %>
     <%= s.collection_select( :product_ids,@products, :id, :name, include_blank: true) %>

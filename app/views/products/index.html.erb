@@ -1,4 +1,4 @@
-
+<!-- the product index  -->
 <h2> Products Index</h2>
 <ol>
   <% @products.each do |product| %>
@@ -8,10 +8,10 @@
   </li>
   <% end %>
 </ol>
-
+<!-- user the bootstrap search functionality -->
 <div class="input-group">
   <%= form_tag(categories_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Products", class: 'form-control' %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Categories", class: 'form-control' %>
     <span class="input-group-btn">
       <%= submit_tag "Search", class: 'btn btn-primary btn btn-default btn btn-success' %>
     </span>

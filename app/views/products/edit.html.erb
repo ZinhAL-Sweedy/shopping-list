@@ -1,8 +1,8 @@
+<!-- edit the product which category belongs to so we loop through the categories and adding bootstrap  -->
 <h2 class="bg-info">Edit Product</h2>
 <%= form_for @product, html: {multipart: true} do |p| %>
 <p class="bg-info">List of Categories
   <%=p.label :category_id,class:"bg-info" %>
-
 
   <div>
     <%= p.label "categories",class:"bg-info"%><br>
