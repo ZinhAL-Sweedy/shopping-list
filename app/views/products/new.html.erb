@@ -1,3 +1,5 @@
+<table class="table table-striped">
+
 <h2>Create New Product</h2>
 <%= form_for(@product, html: {multipart: true}) do |f| %>
 <p>
@@ -21,8 +23,10 @@
 
 <p>
   <%= f.label :image %>
-  <%= f.cl_image_upload :image %>
+  <%= f.cl_image_upload :image, class: 'img-thumbnail' %>
 </p>
 <%= f.submit %>
 
 <% end %>
+
+</table>

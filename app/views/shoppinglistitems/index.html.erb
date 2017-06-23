@@ -3,6 +3,7 @@
 <%= form_tag shopping_list_quantities_path do %>
 
 <ul>
+  <div class="form-group">
   <% @total = 0 %>
   <% @shoppinglistitems.each do |s| %>
   <li>
@@ -14,16 +15,18 @@
     <% @total += (s.product.price * s.quantity) %>
   </li>
   <% end %>
+  </div>
 </ul>
 
-<%= submit_tag 'Update the poduct list' %>
+<%= submit_tag 'Update the poduct list', class:" btn btn-succesbtn btn-success"%>
 <% end %>
-
-<%= button_to 'Add another product', products_path, method: :get %>
+<br>
+<%= button_to 'Add another product', products_path, method: :get, class:"btn btn-success btn btn-success" %>
 
 
 <%# @shoppinglistitems.each do |s| %>
 <%#= s.product.price %>
 
 <%# end %>
+<br>
 <p>Total Price: <%= number_to_currency @total %></p>

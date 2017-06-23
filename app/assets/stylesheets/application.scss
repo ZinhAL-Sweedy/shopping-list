@@ -13,4 +13,22 @@
  *= require_tree .
  *= require_self
  */
- 
+
+.container-fluid{
+  background-color: darken(#428bca, 6.5%);
+  color: black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+html{
+  background-color: darken(#428bca, 6.5%);
+  color: black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+a:link{
+  color: black;
+}
+a:visited{
+  color:white;
+}

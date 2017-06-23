@@ -1,16 +1,16 @@
-<h2>Edit Product</h2>
+<h2 class="bg-info">Edit Product</h2>
 <%= form_for @product, html: {multipart: true} do |p| %>
-<p>List of Categories
-  <%=p.label :category_id %>
+<p class="bg-info">List of Categories
+  <%=p.label :category_id,class:"bg-info" %>
 
 
   <div>
-    <%= p.label "categories" %><br>
+    <%= p.label "categories",class:"bg-info"%><br>
     <%= p.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
 
       <div>
-        <%= c.check_box %>
-        <%= c.label %>
+        <%= c.check_box( class:"bg-info")%>
+        <%= c.label(class:"bg-info") %>
       </div>
     <% end %>
   </div>
@@ -18,27 +18,27 @@
 </p>
 <br>
 <p>
-  <%= p.label :name %>
-  <%= p.text_field :name, required: true %>
+  <%= p.label :name,class:"bg-info"  %>
+  <%= p.text_field :name, required: true,class:"bg-info" %>
 </p>
 <br>
 <p>
-  <%= p.label :number %>
-  <%= p.text_field :number, required: true %>
+  <%= p.label :number,class:"bg-info"  %>
+  <%= p.text_field :number, required: true,class:"bg-info" %>
 </p>
 <br>
 <p>
-  <%= p.label :price %>
-  <%= p.text_field :price, required: true %>
+  <%= p.label :price,class:"bg-info"  %>
+  <%= p.text_field :price, required: true,class:"bg-info" %>
 </p>
 <br>
 <!-- Image URL: -->
 <!-- <input type="text" name="image" value="<%= @product.image %>"> -->
 <p>
-  <%= p.label :image %>
-  <%= p.cl_image_upload :image %>
+  <%= p.label :image ,class:"bg-info" %>
+  <%= p.cl_image_upload :image, class:"img-thumbnail",class:"bg-info"   %>
 </p>
 
 <br>
-<%= p.submit %>
+<%= p.submit class:"btn btn-success" %>
 <% end %>

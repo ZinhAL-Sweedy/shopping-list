@@ -4,17 +4,20 @@
 <% end %>
 <p>Email: <%= @user.email %></p>
 <p>Name: <%= @user.name %></p>
-<p>Shopping_List_Number:<%= @user.shoppingList_id %></p>
+<p>Shopping_List_Items:<%= @user.shoppingList_id %></p>
 
-<ul>
+<ol>
   <% @user.shopping_list_items.each do |s| %>
   <li>
     <%= link_to s.product.name, product_path(s.product) %>
     <%= text_field_tag "item[#{s.product.id}]", s.quantity , size: 4 %>
     <!-- , input_html: { min: 0 } -->
+
     <%= link_to 'Delete', shoppinglistitem_path(s), method: :delete %>
+
     <%= link_to 'Back', :back %>
 
   </li>
   <% end %>
-</ul>
+
+</ol>

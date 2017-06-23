@@ -1,5 +1,7 @@
 
 <h2>Product Details</h2>
+<form>
+<div class="form-group">
 <p>Name: <%= @product.name %></p>
 <p>Number:
 <% if @product.number <= 0 %>
@@ -7,26 +9,33 @@
   <% else %>
    <%= @product.number %></p>
 <% end %>
-
+</div>
 <br>
-<p>List of Categories:
+<div class="form-group">
+<p class="bg-primary">List of Categories:
   <% @product.categories.each do |c| %>
     <a href="/categories/<%= c.id %>"><%= c.name %></a>
 <% end %>
 </p>
-
+</div>
 <br>
+<div class="form-group">
 <p>Price: <%= @product.price %></p>
 <br>
 Image URL:
   <%= cl_image_tag(@product.image) %>
   <!-- class="img-thumbnail" -->
   <a href="/products/<%= @product.id %>/edit">Edit Product Details</a>
-
+</div>
 <hr>
-
+<table class="table table-bordered table-hover">
+<div class="form-group">
 <%= form_tag shoppinglistitems_path do %>
-  Quantity: <%= text_field_tag :quantity %>
+  Quantity: <%= text_field_tag :quantity%>
   <%= submit_tag 'Add to Shopping List' %>
   <%= hidden_field_tag :product_id, @product.id %>
 <% end %>
+</div>
+
+</table>
+</form>

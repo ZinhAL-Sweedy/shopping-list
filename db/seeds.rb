@@ -28,6 +28,12 @@ p3 = Product.create name: 'product3', number: 3, price: 300
 p4 = Product.create name: 'product4', number: 4, price: 400
 p5 = Product.create name: 'product5', number: 5, price: 500
 p6 = Product.create name: 'product6', number: 6, price: 600
+p7 = Product.create name: 'product7', number: 7, price: 500
+p8 = Product.create name: 'product8', number: 8, price: 600
+p9 = Product.create name: 'product9', number: 9, price: 500
+p10 = Product.create name: 'product10', number: 10, price: 600
+p11 = Product.create name: 'product11', number: 11, price: 500
+p12 = Product.create name: 'product12', number: 12, price: 600
 
 Category.destroy_all
 c1 = Category.create name:'category1'
@@ -43,8 +49,8 @@ sl3 = ShoppingListItem.create product: p3, quantity: 3, user:u3
 sl4 = ShoppingListItem.create product: p4, quantity: 4, user:u4
 sl5 = ShoppingListItem.create product: p5, quantity: 5, user:u5
 sl6 = ShoppingListItem.create product: p6, quantity: 6, user:u6
-sl7 = ShoppingListItem.create product: p1, quantity: 7, user:u1
-sl8 = ShoppingListItem.create product: p2, quantity: 8, user:u2
+sl7 = ShoppingListItem.create product: p12, quantity: 7, user:u1
+sl8 = ShoppingListItem.create product: p11, quantity: 8, user:u2
 
 
 u1.shopping_list_items << sl1 << sl7 << sl6

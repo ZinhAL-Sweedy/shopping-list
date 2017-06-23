@@ -10,16 +10,16 @@ Name:
 
 
   <div>
-    <%= f.label "products" %>
-    <%= f.collection_check_boxes :product_ids, Product.all, :id, :name do |p| %>
+    <%= f.label "products", class:"bg-info" %>
+    <%= f.collection_check_boxes :product_ids, Product.all, :id, :name, id:"blankCheckbox", value:"option1" do |p| %>
 
     <div>
-      <%= p.check_box %>
+      <%= p.check_box (class:"text-primary") %>
       <%= p.label %>
     </div>
     <% end %>
   </div>
 </p>
 
-<%= f.submit  %>
+<%= f.submit (class: "btn btn-success") %>
 <% end %>

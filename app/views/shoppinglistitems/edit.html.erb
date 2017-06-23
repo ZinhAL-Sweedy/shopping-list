@@ -10,7 +10,6 @@
     List of Products
     <%= s.label :product_id %>
     <%= s.collection_select( :product_ids,@products, :id, :name, include_blank: true) %>
-
   </p>
   <br>
   <p>
@@ -18,5 +17,5 @@
   </p>
 
   <br>
-  <%= s.submit %>
+  <%= s.submit class:"btn btn-success" %>
   <% end %>

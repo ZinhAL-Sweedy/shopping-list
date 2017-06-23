@@ -1,26 +1,13 @@
 <h2>Users Index</h2>
-<table class="table table-bordered table table-hover">
 
-<ul>
+<div class="form-group">
+<table class="table table-bordered table table-hover">
+<ol>
   <% @users.each do |u| %>
   <li>
     <%= link_to u.name, user_path(u.id) %>
   </li>
   <% end %>
-</ul>
+</ol>
 
 </table>
-
-
-<ul>
-  <% @user.shopping_list_items.each do |s| %>
-  <li>
-    <%= link_to s.product.name, product_path(s.product) %>
-    <%= text_field_tag "item[#{s.product.id}]", s.quantity , size: 4 %>
-    <!-- , input_html: { min: 0 } -->
-    <%= link_to 'Delete', shoppinglistitem_path(s), method: :delete %>
-    <%= link_to 'Back', :back %>
-
-  </li>
-  <% end %>
-</ul>

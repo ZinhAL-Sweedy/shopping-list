@@ -38,7 +38,6 @@ class UsersController < ApplicationController
 
   def show
     redirect_to products_path unless @user == @current_user || @current_user.admin?
-    
   end
 
 

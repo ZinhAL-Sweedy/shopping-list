@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @categories = Category.all
+    @users = User.all
     # @categories = Category.all
   end
 
@@ -59,6 +60,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params["id"]
+    # @user = User.find params["id"]
+    # redirect_to "/users/#{ @user.id }"
   end
 
   def index
