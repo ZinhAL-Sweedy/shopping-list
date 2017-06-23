@@ -14,12 +14,12 @@ Name:
     <%= f.collection_check_boxes :product_ids, Product.all, :id, :name, id:"blankCheckbox", value:"option1" do |p| %>
 
     <div>
-      <%= p.check_box (class:"text-primary") %>
+      <%= p.check_box %>
       <%= p.label %>
     </div>
     <% end %>
   </div>
 </p>
 <!-- add bootstap styles to button-->
-<%= f.submit (class: "btn btn-success") %>
+<%= f.submit  %>
 <% end %>
